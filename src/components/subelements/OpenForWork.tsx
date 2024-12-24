@@ -1,9 +1,9 @@
 "use client"
 import { AnimatePresence, motion } from 'motion/react'
-import React, { useState } from 'react'
+import React from 'react'
 
 export const OpenForWork = () => {
-  const [show, setShow] = useState(false)
+  // const [show, setShow] = useState(false)
 
 
   
@@ -29,7 +29,7 @@ export const OpenForWork = () => {
       viewport={{ once: true }}
       />
 <AnimatePresence>
-  {show && (
+  {/* {show && ( */}
       <motion.small className=""
       initial={{ opacity: 0, x: 30 }}
       animate={{ opacity: 1, x: 0 }}
@@ -37,7 +37,7 @@ export const OpenForWork = () => {
       transition={{ duration: 0.5, delay: 0.45 }}
       viewport={{ once: true }}
       >Open for Work and Collabration</motion.small>
-      )}
+      {/* )} */}
       </AnimatePresence>
     </motion.div>
   )
