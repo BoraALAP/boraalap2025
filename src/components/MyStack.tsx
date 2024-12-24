@@ -1,15 +1,18 @@
-
 import BrandCard, { BrandName } from "./subelements/BrandCard";
+import { H2, P, Reveal } from "./Reveal";
 
 export const MyStack = ({message, brand:{title, brands}}: {message: string, brand:{title: string, brands: BrandName[]}}) => {
   return (
     <section className="mx-auto max-w-6xl px-[5vw] py-20">
       <div className="flex flex-col items-start justify-start gap-8">
-        <div className="flex flex-col   gap-6">
-          <h2 className="">My Stack</h2>
-          <p className="">
+        <div className="flex flex-col gap-6">
+          <H2 >My Stack</H2>
+          <Reveal>
+
+          <P className="">
             {message}
-          </p>
+          </P>
+          </Reveal>
         </div>
         <div className="flex flex-col items-start gap-6 self-stretch">
           <StackCategory
@@ -33,13 +36,13 @@ interface StackCategoryProps {
 
 export const StackCategory = ({ title, brands }: StackCategoryProps) => {
   return (
-    <div className="flex flex-col items-start justify-start gap-2 self-stretch" >
+    <Reveal className="flex flex-col items-start justify-start gap-2 self-stretch" >
       <h5 className="text-base font-semibold">{title}</h5>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] items-start justify-start gap-6 gap-y-4 self-stretch">
         {brands.map((brand, index) => (
           <BrandCard key={brand} brandName={brand} index={index} />
         ))}
       </div>
-    </div>
+    </Reveal>
   );
 };

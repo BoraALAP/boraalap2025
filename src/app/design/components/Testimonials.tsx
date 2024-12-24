@@ -1,5 +1,6 @@
 "use client";
 
+import { H2, H3, P } from "@/components/Reveal";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
@@ -8,9 +9,9 @@ export const Testimonials = () => {
   return (
     <section className="mx-auto max-w-6xl px-[5vw] py-14">
       <div className="flex flex-col gap-4">
-        <h2 >
+        <H2 >
           Some nice words from people worked with me
-        </h2>
+        </H2>
         <div className="flex flex-col gap-6 py-6">
           <Testimonial
             image="https://picsum.photos/100"
@@ -82,16 +83,16 @@ const Testimonial = ({
           <ReadButton />
         </div>
         <div className="flex flex-col gap-1">
-          <h3 className="text-lg font-medium text-light-body dark:text-dark-body">{name}</h3>
+          <H3 className="text-lg font-medium text-light-body dark:text-dark-body">{name}</H3>
           <h4 className="text-base font-semibold text-light-softBody dark:text-dark-softBody">
             {title}
           </h4>
         </div>
       </div>
       <div className=" ">
-        <p className="line-clamp-4 max-w-none flex-col gap-2 overflow-hidden">
+        <P className="line-clamp-4 max-w-none flex-col gap-2 overflow-hidden">
           {quote && quote.map((q, index) => <span key={index}>{q}</span>)}
-        </p>
+        </P>
       </div>
     </div>
   );

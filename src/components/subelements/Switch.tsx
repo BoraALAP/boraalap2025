@@ -20,7 +20,7 @@ export const Switch = () => {
 
   const handleSwitch = () => {
     // Store current scroll position
-    const scrollPosition = window.scrollY;
+    // const scrollPosition = window.scrollY;
     
     if(pathname === "/developer") {
       router.push("/design");
@@ -28,20 +28,24 @@ export const Switch = () => {
       router.push("/developer");
     }
 
-    // Restore scroll position after route change
-    window.requestAnimationFrame(() => {
-      window.scrollTo(0, scrollPosition);
-    });
+    // // Restore scroll position after route change
+    // window.requestAnimationFrame(() => {
+    //   window.scrollTo(0, scrollPosition);
+    // });
   }
 
   return (
-    <div 
+    <motion.div 
       className={`relative rounded-full shadow-md border border-light-softLight dark:border-dark-softLight w-14 p-0.5 items-center gap-2 inline-flex overflow-hidden transition-colors duration-300 ${
         isDev 
           ? "justify-end bg-[#00f508]" 
           : "justify-start bg-light-bg dark:bg-dark-bg"
       }`} 
       onClick={handleSwitch}
+      initial={{ opacity: 0, y: -50  }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 50 }}
+      transition={{ duration: 0.6, delay: 0.3, ease: "easeInOut" }}
     >
       <motion.div 
         layout 
@@ -50,6 +54,6 @@ export const Switch = () => {
       >
         <DevLogo />
       </motion.div>
-    </div>
+    </motion.div>
   );
 }

@@ -1,26 +1,34 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { H3 } from "@/components/Reveal";
 
 export const Row = ({
   title,
   children,
+  onSectionEnter,
+  onSectionLeave,
 }: {
   title: string;
   children: React.ReactNode;
+  onSectionEnter: (section: string) => void;
+  onSectionLeave: (section: string) => void;
 }) => {
   return (
-    <div
+    <motion.div
       className="flex flex-col items-start justify-start gap-6 py-6 sm:flex-row"
       id={title}
       data-section
+      onViewportEnter={() => onSectionEnter(title)}
+      onViewportLeave={() => onSectionLeave(title)}
     >
       <div className="flex gap-2 sm:w-60 sm:justify-end">
-        <h3 className="text-lg font-medium leading-normal sm:text-right">
+        <H3 className="text-lg font-medium leading-normal sm:text-right">
           {title}
-        </h3>
+        </H3>
       </div>
       <div className="flex min-w-[320px] shrink grow basis-0 flex-col items-start justify-start gap-6">
         {children}
       </div>
-    </div>
+    </motion.div>
   );
 };

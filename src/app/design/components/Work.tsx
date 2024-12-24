@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import Link from "next/link";
+import { H3, P } from "@/components/Reveal";
 
 export const Work = () => {
   return (
@@ -100,8 +101,8 @@ const WorkCard = ({
       <div className="bottom-0 left-0 right-0 flex flex-col items-start justify-start gap-4 self-stretch overflow-hidden bg-white/90 p-8 backdrop-blur-[20px] md:absolute md:inline-flex md:flex-row">
         {/* description */}
         <div className="flex flex-col items-start justify-start gap-4">
-          <h3 className="text-4xl font-medium text-light-body">{title}</h3>
-          <p className="text-light-softBody">{description}</p>
+          <H3 className="text-4xl font-medium text-light-body">{title}</H3>
+          <P className="text-light-softBody">{description}</P>
         </div>
 
         {/* bottom metrics */}

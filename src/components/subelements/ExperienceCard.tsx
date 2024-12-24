@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion";
-
+import { P } from "../Reveal";
 
 
 export const ExperienceCard = ({
@@ -37,9 +37,9 @@ export const ExperienceCard = ({
       <h5 className={"shrink grow basis-0 text-base font-semibold text-light-body dark:text-dark-body " + (freelance ? "opacity-50" : "opacity-100")}>
         {company}
       </h5>
-      <p className={"shrink grow basis-0 text-base font-semibold text-light-softBody dark:text-dark-softBody " + (freelance ? "opacity-50" : "opacity-100")}>
+      <P className={"shrink grow basis-0 text-base font-semibold text-light-softBody dark:text-dark-softBody " + (freelance ? "opacity-50" : "opacity-100")}>
         {title}
-      </p>
+      </P>
     </motion.div>
   );
 };

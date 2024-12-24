@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { animate, motion, useInView } from "motion/react";
+import { P } from "../Reveal";
 import {
   FigmaLogo,
   JiraLogo,
@@ -107,7 +108,7 @@ const BrandCard: React.FC<BrandCardProps> = ({ brandName,  index }) => {
        flex items-center justify-start gap-2 rounded-[10px]`}
     >
       <div className="relative h-8 w-8">{getLogo(brandName)}</div>
-      <p className="">{brandName}</p>
+      <P className="">{brandName}</P> 
     </motion.div>
   );
 };

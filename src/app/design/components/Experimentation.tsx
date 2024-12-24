@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { H2 } from "@/components/Reveal";
 
 const projects = [
   {
@@ -108,14 +109,10 @@ export const Experimentation = () => {
   return (
     <section className="inline-flex w-full flex-col items-start justify-start gap-6 overflow-hidden px-[5vw] py-20">
       <div className="inline-flex items-center justify-center gap-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+        <H2
         >
           Experimentation
-        </motion.h2>
+        </H2>
         <div className="flex gap-2">
           <motion.button
             onClick={scrollLeft}
