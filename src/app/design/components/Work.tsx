@@ -94,7 +94,7 @@ const WorkCard = ({
           src="https://picsum.photos/400"
           alt="Freshbooks Connect"
           fill
-          objectFit="cover"
+          
         />
       </div>
       {/* content */}
