@@ -76,7 +76,7 @@ export const Experimentation = () => {
           }`}
           disabled={currentIndex <= 0}
         >
-          <IoChevronBack size={24} className="text-light-body dark:text-dark-body"/>
+          <IoChevronBack size={24} className="text-light-body dark:text-dark-body" />
         </button>
 
         <button
@@ -86,7 +86,7 @@ export const Experimentation = () => {
           }`}
           disabled={currentIndex >= projects.length - visibleCards}
         >
-          <IoChevronForward size={24} className="text-light-body dark:text-dark-body"/>
+          <IoChevronForward size={24} className="text-light-body dark:text-dark-body" />
         </button>
       <div className="relative">
         <motion.div

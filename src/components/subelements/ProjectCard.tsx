@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import Image from "next/image";
 import { useRef, useEffect } from "react";
 
@@ -17,15 +18,19 @@ export const ProjectCard = ({
   useEffect(() => {
     if (cardRef.current) {
       const width = cardRef.current.getBoundingClientRect().width;
+      
       onWidthChange(width);
     }
   }, [onWidthChange]);
 
   return (
-    <div
+    <motion.div
       ref={cardRef}
       className="relative w-full h-[80vh]  max-h-[80vh] aspect-[3/6] overflow-hidden rounded-3xl select-none"
-    
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
     >
       <div className="absolute inset-0">
         <Image
@@ -38,7 +43,7 @@ export const ProjectCard = ({
           unoptimized
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
