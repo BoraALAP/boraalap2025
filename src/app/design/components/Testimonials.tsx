@@ -69,7 +69,7 @@ const Testimonial = ({
   console.log(name, scale.get(), progress, range, [1, targetScale]);
   
   return (
-    <motion.div className={`flex flex-col gap-6 sticky   rounded-2xl bg-light-base dark:bg-dark-base p-8 `} 
+    <motion.div className={`flex flex-col gap-6 sticky   rounded-2xl bg-light-base dark:bg-dark-base p-8`} 
       style={{top: `calc(10px + ${index * 100}px)`, scale: scale}}
 
     >

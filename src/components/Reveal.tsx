@@ -39,7 +39,7 @@ const liVariants = {
 } 
 
 const divVariants = {
-  hidden: { opacity: 0, x:30 },
+  hidden: { opacity: 0, x: 30 },
   show: { opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.35, ease:"backInOut" } },
   exit: { opacity: 0, x: 30, transition: { duration: 0.5, delay: 0.35, ease:"backInOut" } },
   }

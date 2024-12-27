@@ -30,15 +30,14 @@ export default async function RootLayout({
   return (
     <html lang="en"  suppressHydrationWarning>
       <body 
-        className={`${rethinkSans.variable} antialiased `}
+        className={`${rethinkSans.variable} antialiased  `}
       >
         <ReactLenis root>
         <Providers>
           <Header />
-          <main className="md:rounded-b-4xl rounded-b-2xl md:shadow-2xl shadow-2xl w-full  bg-light-bg dark:bg-dark-bg">{children}</main>
+          <main className="md:rounded-b-4xl rounded-b-2xl md:shadow-2xl shadow-2xl  bg-light-bg dark:bg-dark-bg">{children}</main>
           <FloatingHeader />
           <Footer />
-    
         </Providers>  
         </ReactLenis>
       </body>

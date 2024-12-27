@@ -90,7 +90,7 @@ const WorkCard = ({
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.2 }}
       viewport={{ once: true }}
-      className="group w-full relative inline-flex cursor-none flex-col items-start justify-start overflow-hidden rounded-3xl lg:pb-28"
+      className="group w-full relative inline-flex cursor-none flex-col items-start overflow-hidden justify-start rounded-3xl lg:pb-28"
     >
       {/* Custom Cursor */}
       <motion.div

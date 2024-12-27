@@ -15,7 +15,7 @@ export const Row = ({
 }) => {
   return (
     <motion.div
-      className="mx-auto flex flex-col items-start justify-start gap-6 py-6 sm:flex-row"
+      className="mx-auto flex flex-col items-baseline justify-start gap-6 py-6 sm:flex-row"
       id={title}
       data-section
       onViewportEnter={() => onSectionEnter(title)}
