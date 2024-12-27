@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
+import { H2, Reveal } from "@/components/Reveal";
 import { ProjectCard } from "@/components/subelements/ProjectCard";
 
 const projects = [
@@ -67,8 +68,9 @@ export const Experimentation = () => {
   return (
     <section className="relative flex flex-col items-start justify-start gap-6 px-[5vw] py-20 overflow-x-hidden">
       <div className="items-center justify-center gap-4">
-        <h2>Experimentation</h2>
+        <H2>Experimentation</H2>
       </div>
+      <Reveal>
       <button
           onClick={handlePrev}
           className={`absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-light-base/90 dark:bg-dark-base/90 p-3 shadow-md transition-all ${
@@ -78,7 +80,10 @@ export const Experimentation = () => {
         >
           <IoChevronBack size={24} className="text-light-body dark:text-dark-body"/>
         </button>
+        </Reveal>
 
+
+        <Reveal>
         <button
           onClick={handleNext}
           className={`absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-light-base/90 dark:bg-dark-base/90 p-3 shadow-md transition-all ${
@@ -88,6 +93,8 @@ export const Experimentation = () => {
         >
           <IoChevronForward size={24} className="text-light-body dark:text-dark-body"/>
         </button>
+        </Reveal>
+
       <div className="relative">
         <motion.div
           className="flex gap-4"

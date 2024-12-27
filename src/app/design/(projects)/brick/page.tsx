@@ -1,15 +1,24 @@
 "use client";
-import React, {  useState } from "react";
 
+import React, {  useState } from "react";
 
 import { Row } from "../components/Row";
 import { SideNav } from "../components/SideNav";
 
-
-
 import { NextProject } from "../components/NextProject";
 import {  H4,  P, UL, Blockquote } from "@/components/Reveal";
 import { Hero } from "../components/Hero";
+import { ImageContainer } from "../components/ImageContainer";
+
+
+import thumbnail from "../../../../../public/projects/bricks/thumbnail.png"
+import analytics from "../../../../../public/projects/bricks/analytics.png"
+import collabration from "../../../../../public/projects/bricks/collabration.png"
+import documentation from "../../../../../public/projects/bricks/documentation.jpg"
+import impact from "../../../../../public/projects/bricks/impact.jpg"
+import overview from "../../../../../public/projects/bricks/overview.png"
+
+
 
 const sections = [
   {
@@ -79,11 +88,9 @@ export default function BrickPage() {
   
 
   return (
-    <div className="relative flex w-full flex-col overflow-hidden">
-     
-      <div className="flex flex-col">
-        <Hero title="Freshbooks Design System" subtitle="Product Cross Platform Design System" />
-        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-[5vw] py-14 md:pr-24 xl:pr-[5vw]">
+   <>
+        <Hero title="Freshbooks Design System" subtitle="Product Cross Platform Design System" src={thumbnail.src}/>
+        <div className=" flex  flex-col gap-10 px-[5vw] py-14 md:pr-24 xl:pr-[5vw]">
           <Row onSectionEnter={handleSectionEnter} onSectionLeave={handleSectionLeave} title="Project Overview">
             <P>
               <b>Freshbricks </b>
@@ -104,14 +111,13 @@ export default function BrickPage() {
               ongoing projects like the FreshBooks Connect mobile app.
             </P>
           </Row>
-          
-            <Blockquote>
-              Implementing Freshbricks significantly streamlined our workflow,
-              enhancing consistency and collaboration across teams while
-              reducing development time and ensuring an accessible user
-              experience across all products.
-            </Blockquote>
-          
+          <ImageContainer src={overview.src} alt="Freshbricks" />
+          <Blockquote>
+            Implementing Freshbricks significantly streamlined our workflow,
+            enhancing consistency and collaboration across teams while
+            reducing development time and ensuring an accessible user
+            experience across all products.
+          </Blockquote>
           <Row onSectionEnter={handleSectionEnter} onSectionLeave={handleSectionLeave} title="Identifying the Need">
             <P>
               We observed significant challenges in our existing design and
@@ -186,6 +192,7 @@ export default function BrickPage() {
               our products are usable by all.
             </P>
           </Row>
+          
           <Row onSectionEnter={handleSectionEnter} onSectionLeave={handleSectionLeave} title="Challenges and Problem-Solving">
             <P>
               We faced significant challenges, such as balancing the development
@@ -203,6 +210,7 @@ export default function BrickPage() {
               
             </div>
           </Row>
+          
           <Row onSectionEnter={handleSectionEnter} onSectionLeave={handleSectionLeave} title="Impact and Outcomes">
             <P>
               The design system has brought measurable benefits to the
@@ -225,6 +233,7 @@ export default function BrickPage() {
               
             </div>
           </Row>
+          <ImageContainer src={impact.src} alt="Freshbricks" />
           <Row onSectionEnter={handleSectionEnter} onSectionLeave={handleSectionLeave} title="Component Library Development">
             <P>
               We developed key components ranging from atomic elements like
@@ -252,6 +261,7 @@ export default function BrickPage() {
               aligning names and usage between Figma and engineering use cases.
             </P>
           </Row>
+          <ImageContainer src={analytics.src} alt="Freshbricks" />
           <Row onSectionEnter={handleSectionEnter} onSectionLeave={handleSectionLeave} title="Implementation and Adoption">
             <P>The design system was rolled out strategically:</P>
             <UL items={[
@@ -276,6 +286,7 @@ export default function BrickPage() {
               able to overcome this challenge and encourage adoption.
             </P>
           </Row>
+          <ImageContainer src={documentation.src} alt="Freshbricks" />
           <Row onSectionEnter={handleSectionEnter} onSectionLeave={handleSectionLeave} title="Documentation and Tools">
             <P>
               We centralized all documentation, guidelines, and best practices
@@ -292,7 +303,7 @@ export default function BrickPage() {
               
             </div>
             <div className="flex flex-col items-start justify-start gap-3">
-              <h4>Version Control and Updates:</h4>
+              <H4>Version Control and Updates:</H4>
               <P>
                 We managed version control through a branching strategy,
                 ensuring the main branch remains production-ready. Controlled
@@ -308,6 +319,7 @@ export default function BrickPage() {
               </P>
             </div>
           </Row>
+          <ImageContainer src={collabration.src} alt="Freshbricks" />
           <Row onSectionEnter={handleSectionEnter} onSectionLeave={handleSectionLeave} title="Collaboration and Governance">
             <P>
               Our core team consisted of two designers, five engineers, and one
@@ -412,11 +424,11 @@ export default function BrickPage() {
             </Blockquote>
           
         </div>
-      </div>
+      
       {/* Side Nav */}
       <SideNav sections={sections} activeSection={activeSection} />
       {/* Other projects */}
       <NextProject href="/design/connect" title="Freshbooks Connect" />
-    </div>
+      </>
   );
 }

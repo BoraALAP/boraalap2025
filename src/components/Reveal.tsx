@@ -1,5 +1,5 @@
 "use client"
-import { AnimatePresence, motion } from "motion/react";
+import {  motion } from "motion/react";
 
 
 const h2Variants = {
@@ -46,72 +46,72 @@ const divVariants = {
 
 export const Reveal = ({ children, className }: { children: React.ReactNode, className?: string }) => {
   return (
-    <AnimatePresence>
+    
     <motion.div variants={divVariants}
     initial="hidden"
     whileInView="show"
-    exit="exit"
+    
     viewport={{ once: true }} className={className}>
       {children}
     </motion.div>
-    </AnimatePresence>
+    
   )
 }
 
 export const H2 = ({children, className}: {children: React.ReactNode, className?: string}) => {
   return (
-    <AnimatePresence>
+    
     <motion.h2 variants={h2Variants}
     initial="hidden"
     whileInView="show"
-    exit="exit"
+    
     viewport={{ once: true }} className={className}>
       {children}
     </motion.h2>
-    </AnimatePresence>
+    
   )
 }
 
 export const H3 = ({children, className}: {children: React.ReactNode, className?: string}) => {
   return (
-    <AnimatePresence>
+    
     <motion.h3 variants={h3Variants}
     initial="hidden"
     whileInView="show"
-    exit="exit"
+    
     viewport={{ once: true }} className={className}>
       {children}
     </motion.h3>
-    </AnimatePresence>
+    
   )
 }
 
 export const H4 = ({children, className}: {children: React.ReactNode, className?: string}) => {
   return (
-    <AnimatePresence>
+    
     <motion.h4 variants={h4Variants}
     initial="hidden"
     whileInView="show"
-    exit="exit"
+    
     viewport={{ once: true }} className={className}>
       {children}
     </motion.h4>
-    </AnimatePresence>
+    
   )
 }
 
 
 export const P = ({children, className}: {children: React.ReactNode, className?: string}) => {
   return (
-    <AnimatePresence>
+    
     <motion.p variants={pVariants}
     initial="hidden"
     whileInView="show"
-    exit="exit"
+    
     viewport={{ once: true }} className={className}>
       {children}
     </motion.p>
-    </AnimatePresence>
+    
   )
 }
 
@@ -121,7 +121,7 @@ export const UL = ({  items , className}: {items: {title?: string, description: 
     <motion.ul variants={ulVariants}
     initial="hidden"
     whileInView="show"
-    // exit="exit"
+    // 
     viewport={{ once: true }} 
     className={className}>
       {items.map((item, index) => (

@@ -3,13 +3,15 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import Link from "next/link";
-import { H3, P } from "@/components/Reveal";
+import { H2,H3, P } from "@/components/Reveal";
+import connect from "../../../../public/projects/connect/thumbnail.png"
+import brick from "../../../../public/projects/bricks/thumbnail.png"
 
 export const Work = () => {
   return (
     <section className="px-[5vw] py-20">
       <div className="flex flex-col gap-6">
-        <h2 className="">Work</h2>
+        <H2 className="">Work</H2>
         <div className="grid grid-cols-1 items-center justify-center gap-8 self-stretch lg:grid-cols-2">
           <WorkCard
             title="Freshbooks Connect"
@@ -21,6 +23,7 @@ export const Work = () => {
               { metrics: "Data Accuracy Improvement", value: "25%" },
             ]}
             link="/design/connect"
+            src={connect.src}
           />
           <WorkCard
             title="FreshBricks"
@@ -30,6 +33,7 @@ export const Work = () => {
               { metrics: "Development Time Reduction", value: "30%" },
             ]}
             link="/design/brick"
+            src={brick.src}
           />
         </div>
       </div>
@@ -42,6 +46,7 @@ const WorkCard = ({
   description,
   metrics,
   link,
+  src,
 }: {
   title: string;
   description: string;
@@ -50,6 +55,7 @@ const WorkCard = ({
     value: string;
   }[];
   link: string;
+  src: string;
 }) => {
   // Create motion values for cursor
   const cursorX = useMotionValue(-100);
@@ -74,9 +80,17 @@ const WorkCard = ({
   }, [cursorX, cursorY]);
 
   return (
+   
     <Link
       href={link}
-      className="group relative inline-flex cursor-none flex-col items-start justify-start overflow-hidden rounded-3xl lg:pb-28"
+      
+    >
+       <motion.div
+      initial={{ opacity: 0}}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      viewport={{ once: true }}
+      className="group w-full relative inline-flex cursor-none flex-col items-start justify-start overflow-hidden rounded-3xl lg:pb-28"
     >
       {/* Custom Cursor */}
       <motion.div
@@ -88,17 +102,18 @@ const WorkCard = ({
       >
         <span className="text-light-base dark:text-dark-base text-md font-semibold">View Project</span>
       </motion.div>
-      <div className="relative aspect-square h-full w-full">
+      <div className="relative aspect-square h-full w-full md:mb-10">
         <Image
-          className="object-cover"
-          src="https://picsum.photos/400"
+          className="object-contain object-center bg-light-base dark:bg-dark-base"
+          src={src}
           alt="Freshbooks Connect"
           fill
-          
+          placeholder="blur"
+          blurDataURL={src}
         />
       </div>
       {/* content */}
-      <div className="bottom-0 left-0 right-0 flex flex-col items-start justify-start gap-4 self-stretch overflow-hidden bg-white/90 p-8 backdrop-blur-[20px] md:absolute md:inline-flex md:flex-row">
+      <div className="bottom-0 left-0 right-0 flex flex-col items-start justify-start gap-4 self-stretch overflow-hidden bg-light-base dark:bg-dark-base p-8  md:absolute md:inline-flex md:flex-row">
         {/* description */}
         <div className="flex flex-col items-start justify-start gap-4">
           <H3 className="text-4xl font-medium text-light-body">{title}</H3>
@@ -119,6 +134,7 @@ const WorkCard = ({
           ))}
         </div>
       </div>
+    </motion.div>
     </Link>
   );
 };

@@ -13,7 +13,7 @@ export const OpenForWork = () => {
     animate={{ opacity: 1, x: 0 }}
     
     
-    transition={{ when: "beforeChildren", delay: 0.5, duration: 6.5, delayChildren: 0.5 }}
+    transition={{ when: "beforeChildren", delay: 0.5, duration: 0.5, delayChildren: 0.5 }}
     viewport={{ once: true }}
     >
       <motion.div className="h-4 w-4 rounded-full bg-[#00f508]" 

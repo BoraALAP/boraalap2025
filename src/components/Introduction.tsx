@@ -1,4 +1,5 @@
 import Image from "next/image";
+import profile from "../../public/profile.jpg"
 import { H2, P, Reveal } from "./Reveal";
 import { OpenForWork } from "./subelements/OpenForWork";
 
@@ -8,8 +9,9 @@ export const Introduction = ({title, children}: {title: string, children: React.
       <Reveal>
       <Image
         className="h-[120px] w-[120px] rounded-full"
-        src="https://picsum.photos/200"
+        src={profile}
         alt="Profile"
+        placeholder="blur"
         width={120}
         height={120}
       />
