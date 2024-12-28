@@ -22,7 +22,7 @@
 
 body {
   @apply bg-light-base text-light-body dark:bg-dark-base dark:text-dark-body ;
-  contain: paint;
+  
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
 }

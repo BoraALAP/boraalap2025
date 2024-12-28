@@ -3,17 +3,11 @@ import { AnimatePresence, motion } from 'motion/react'
 import React from 'react'
 
 export const OpenForWork = () => {
-  // const [show, setShow] = useState(false)
-
-
-  
   return (
     <motion.div className="flex items-center gap-4 overflow-hidden rounded-full bg-light-base dark:bg-dark-base p-4"
     initial={{ opacity: 0, x: 30 }}
-    animate={{ opacity: 1, x: 0 }}
-    
-    
-    transition={{ when: "beforeChildren", delay: 0.5, duration: 0.5, delayChildren: 0.5 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{  delay: 0.5, duration: 0.5}}
     viewport={{ once: true }}
     >
       <motion.div className="h-4 w-4 rounded-full bg-[#00f508]" 

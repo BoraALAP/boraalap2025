@@ -12,7 +12,7 @@ export const Testimonials = () => {
   const { scrollYProgress } = useScroll({target: containerRef, offset: ["start start", "end end"]});
 
   return (
-    <section className="mx-auto max-w-6xl px-[5vw] py-14 ">
+    <section className="relative mx-auto max-w-6xl px-[5vw] py-14 ">
       <div className="flex flex-col gap-4">
         <H2 >
           Some nice words from people worked with me
@@ -63,10 +63,7 @@ const Testimonial = ({
   range: number[];
   targetScale: number;
 }) => {
-
   const scale = useTransform(progress, range, [1, targetScale]);
-
-  console.log(name, scale.get(), progress, range, [1, targetScale]);
   
   return (
     <motion.div className={`flex flex-col gap-6 sticky   rounded-2xl bg-light-base dark:bg-dark-base p-8`} 
