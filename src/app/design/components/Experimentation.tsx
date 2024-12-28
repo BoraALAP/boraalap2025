@@ -64,46 +64,37 @@ export const Experimentation = () => {
     }
   };
 
-  
-
   return (
-    <motion.section className="relative flex flex-col items-start justify-start gap-6 px-[5vw] py-20 overflow-x-hidden "
+    <motion.section className="relative flex flex-col items-start justify-start gap-6 py-20"
     initial="hidden"
     whileInView="show"
     variants={divVariants}  
     viewport={{ once: true }} 
     >
-      <div className="items-center justify-center gap-4">
-        <H2>Experimentation</H2>
+      <div className="items-center justify-center gap-4 px-[5vw]">
+        <H2>Projects</H2>
       </div>
-
-      <SliderPrevArrow disabled={currentIndex <= 0 || true} handlePrev={handlePrev}/>
-      <SliderNextArrow disabled={currentIndex >= projects.length - visibleCards || true} handleNext={handleNext}/>
-      
-        
-
-
-        
-      <div className="absolute z-10 inset-0 w-full h-full flex bg-light-base/20 dark:bg-dark-base/20  items-center justify-center"><h3 className="text-light-body dark:text-dark-body">Coming Soon</h3></div>
-        
-
-      <div className="relative blur-lg">
-      
-        <motion.div
-          className="flex gap-4"
-          animate={{ x: -currentIndex * (cardWidth + 16) }}
-          transition={{ type: "spring", stiffness: 150, damping: 20 }}
-        >
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={project.title}
-              title={project.title}
-              image={project.image}
-              index={index}
-              onWidthChange={handleWidthChange}
-            />
-          ))}
-        </motion.div>
+      <div className="relative px-[5vw] w-screen">
+        <div className="absolute z-10 inset-0 w-full h-full flex items-center justify-center"><h3 className="text-light-body dark:text-dark-body">Coming Soon</h3></div>  
+        <SliderPrevArrow disabled={currentIndex <= 0 || true} handlePrev={handlePrev}/>
+        <SliderNextArrow disabled={currentIndex >= projects.length - visibleCards || true} handleNext={handleNext}/>
+        <div className="relative blur-lg opacity-50 overflow-x-hidden">
+          <motion.div
+            className="flex gap-4 w-fit"
+            animate={{ x: -currentIndex * (cardWidth + 16) }}
+            transition={{ type: "spring", stiffness: 150, damping: 20 }}
+          >
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={project.title}
+                title={project.title}
+                image={project.image}
+                index={index}
+                onWidthChange={handleWidthChange}
+              />
+            ))}
+          </motion.div>
+        </div>
       </div>
     </motion.section>
   );

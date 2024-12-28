@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 import { ProjectCard } from "@/components/subelements/ProjectCard";
+import { SliderNextArrow } from "@/components/subelements/SliderArrows";
+import { divVariants, H2 } from "@/components/Reveal";
+import { SliderPrevArrow } from "@/components/subelements/SliderArrows";
 
 const projects = [
   { title: "Experiment 1", image: "https://picsum.photos/700" },
@@ -62,50 +64,39 @@ export const Work = () => {
     }
   };
 
-  
-
   return (
-    <section className="relative flex flex-col items-start justify-start gap-6 px-[5vw] py-20 overflow-x-hidden">
-      <div className="items-center justify-center gap-4">
-        <h2>Projects</h2>
+    <motion.section className="relative flex flex-col items-start justify-start gap-6 py-20"
+    initial="hidden"
+    whileInView="show"
+    variants={divVariants}  
+    viewport={{ once: true }} 
+    >
+      <div className="items-center justify-center gap-4 px-[5vw]">
+        <H2>Projects</H2>
       </div>
-      <button
-          onClick={handlePrev}
-          className={`absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-light-base/90 dark:bg-dark-base/90 p-3 shadow-md transition-all ${
-            currentIndex > 0 ? "opacity-100 hover:scale-110" : "cursor-not-allowed opacity-40"
-          }`}
-          disabled={currentIndex <= 0}
-        >
-          <IoChevronBack size={24} className="text-light-body dark:text-dark-body" />
-        </button>
-
-        <button
-          onClick={handleNext}
-          className={`absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-light-base/90 dark:bg-dark-base/90 p-3 shadow-md transition-all ${
-            currentIndex < projects.length - visibleCards ? "opacity-100 hover:scale-110" : "cursor-not-allowed opacity-40"
-          }`}
-          disabled={currentIndex >= projects.length - visibleCards}
-        >
-          <IoChevronForward size={24} className="text-light-body dark:text-dark-body" />
-        </button>
-      <div className="relative">
-        <motion.div
-          className="flex gap-4"
-          animate={{ x: -currentIndex * (cardWidth + 16) }}
-          transition={{ type: "spring", stiffness: 150, damping: 20 }}
-        >
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={project.title}
-              title={project.title}
-              image={project.image}
-              index={index}
-              onWidthChange={handleWidthChange}
-            />
-          ))}
-        </motion.div>
+      <div className="relative px-[5vw] w-screen">
+        <div className="absolute z-10 inset-0 w-full h-full flex items-center justify-center"><h3 className="text-light-body dark:text-dark-body">Coming Soon</h3></div>  
+        <SliderPrevArrow disabled={currentIndex <= 0 || true} handlePrev={handlePrev}/>
+        <SliderNextArrow disabled={currentIndex >= projects.length - visibleCards || true} handleNext={handleNext}/>
+        <div className="relative blur-lg opacity-50 overflow-x-hidden">
+          <motion.div
+            className="flex gap-4 w-fit"
+            animate={{ x: -currentIndex * (cardWidth + 16) }}
+            transition={{ type: "spring", stiffness: 150, damping: 20 }}
+          >
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={project.title}
+                title={project.title}
+                image={project.image}
+                index={index}
+                onWidthChange={handleWidthChange}
+              />
+            ))}
+          </motion.div>
+        </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

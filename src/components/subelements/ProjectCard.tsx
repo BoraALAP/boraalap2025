@@ -26,18 +26,19 @@ export const ProjectCard = ({
   return (
     <motion.div
       ref={cardRef}
-      className="relative w-full h-[80vh]  max-h-[80vh] aspect-[3/6] overflow-hidden rounded-md  select-none"
+      className="relative   rounded-md  select-none"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
-      <div className="absolute inset-0">
+      <div className=" inset-0  w-[400px] ">
         <Image
           className="pointer-events-none object-cover select-none [-webkit-user-drag:none] [-webkit-touch-callout:none]"
           src={image}
           alt={title}
-          fill
+          width={1000}
+          height={1000}
           priority={index < 3}
           draggable={false}
           unoptimized
