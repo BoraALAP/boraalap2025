@@ -21,7 +21,7 @@ export const SideNav = ({
       
     >
         <motion.div  
-          className=" right-4  flex flex-col items-end justify-center gap-2 overflow-hidden bg-light-base dark:bg-dark-base rounded-2xl p-8 "
+          className=" right-4  flex flex-col items-end justify-center gap-2 overflow-hidden bg-light-base dark:bg-dark-base rounded-md  p-8 "
         onMouseEnter={() => setShowTitle(true)}
         onMouseLeave={() => setShowTitle(false)}
         variants={ContainerVariants}

@@ -105,7 +105,7 @@ const BrandCard: React.FC<BrandCardProps> = ({ brandName,  index }) => {
       initial={{ opacity: 0, x: 10 }}
       className={`h-14 shrink grow basis-0 p-3 
         bg-light-base text-light-body dark:bg-dark-base dark:text-dark-softBody
-       flex items-center justify-start gap-2 rounded-lg`}
+       flex items-center justify-start gap-2 rounded-md `}
     >
       <div className="relative h-8 w-8">{getLogo(brandName)}</div>
       <P className="">{brandName}</P> 

@@ -14,7 +14,7 @@ export const NextProject = ({href, title}: {href: string, title: string}) => {
   return (
     <Link href={href}>
       <div className="flex w-fit self-center mx-auto  px-[5vw] py-14 items-center justify-center border-t border-light-accentSoft dark:border-dark-accentSoft">
-        <motion.div className={`flex  items-center justify-center gap-4 transition-all duration-600 px-6 py-2 rounded-lg
+        <motion.div className={`flex  items-center justify-center gap-4 transition-all duration-600 px-6 py-2 rounded-md 
         bg-light-base dark:bg-dark-base hover:bg-light-softLight dark:hover:bg-dark-softLight
         `}
         initial={{ opacity: 0, y: 100 }}

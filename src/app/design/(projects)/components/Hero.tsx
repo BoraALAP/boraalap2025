@@ -21,7 +21,7 @@ export const Hero = ({title, subtitle, src}: {title: string, subtitle: string, s
       </div>
 
       {/* Text Content */}
-      <div className="relative bg-gradient-to-b from-transparent to-light-bg flex flex-col items-center justify-end h-full pb-[10vh] text-center  px-4">
+      <div className="relative bg-gradient-to-b from-transparent to-light-bg flex flex-col items-center justify-end h-full pb-[10vh] text-center px-4">
         <H2>{title}</H2>
         <H3 className="text-light-body dark:text-dark-body">{subtitle}</H3>
       </div>

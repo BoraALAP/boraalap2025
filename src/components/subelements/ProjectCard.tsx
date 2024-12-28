@@ -26,7 +26,7 @@ export const ProjectCard = ({
   return (
     <motion.div
       ref={cardRef}
-      className="relative w-full h-[80vh]  max-h-[80vh] aspect-[3/6] overflow-hidden rounded-3xl select-none"
+      className="relative w-full h-[80vh]  max-h-[80vh] aspect-[3/6] overflow-hidden rounded-md  select-none"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
