@@ -25,7 +25,7 @@ const projects = [
   { title: "Experiment 17", image: "https://picsum.photos/700" },
 ];
 
-export const Experimentation = () => {
+export const Work = () => {
   const [cardWidth, setCardWidth] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCards, setVisibleCards] = useState(1);
@@ -67,7 +67,7 @@ export const Experimentation = () => {
   return (
     <section className="relative flex flex-col items-start justify-start gap-6 px-[5vw] py-20 overflow-x-hidden">
       <div className="items-center justify-center gap-4">
-        <h2>Experimentation</h2>
+        <h2>Projects</h2>
       </div>
       <button
           onClick={handlePrev}

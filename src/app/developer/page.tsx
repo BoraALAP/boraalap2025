@@ -1,7 +1,7 @@
 import { Introduction } from "@/components/Introduction";
 import { MyStack } from "@/components/MyStack";
 import { Experiences } from "./components/Experiences";
-import { Experimentation } from "./components/Experimentation";
+import { Work } from "./components/Work";
 
 const DeveloperPage = () => {
   return (
@@ -15,7 +15,7 @@ const DeveloperPage = () => {
       </Introduction>
       <MyStack message="I strive to be versatile in my approach, continuously learning and adapting to new technologies to refine my skills and create robust, scalable solutions." brand={{ title: "Development", brands: ["React", "ReactNative", "Nextjs", "Expo", "Supabase", "Tailwind", "Cursor", "Framer", "Webflow"] }} />
       <Experiences />
-      <Experimentation />
+      <Work />
     </div>
   );
 }

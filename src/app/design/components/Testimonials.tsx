@@ -3,27 +3,26 @@
 import { H2, H3, P, H4 } from "@/components/Reveal";
 import { AnimatePresence, motion, MotionValue, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 
 
 export const Testimonials = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({target: containerRef, offset: ["start start", "end end"]});
-
+  const { scrollYProgress } = useScroll({target: containerRef, offset: 
+    ["start start", "end start"]});
+  
   return (
-    <section className="relative mx-auto max-w-6xl px-[5vw] py-14 ">
+    <section className="mx-auto max-w-6xl px-[5vw] py-14 ">
       <div className="flex flex-col gap-4">
         <H2 >
           Some nice words from people worked with me
         </H2>
-        <div className="relative flex flex-col gap-6 py-6  " ref={containerRef}>
-
+        <div className="relative flex flex-col gap-6 py-6  items-center justify-center " ref={containerRef}>
           {testimonials.map((item, index) =>{
-            const targetScale = 1-((testimonials.length-index)* 0.05)
+            const targetScale = 1-((testimonials.length-(index)) * 0.05)
+            const rangeStart =   ((index+1) * 0.05) 
             return (
-            
-
               <Testimonial
                 image={item.image}
                 name={item.name}
@@ -31,13 +30,11 @@ export const Testimonials = () => {
                 quote={item.quote}
                 key={item.name}
                 index={index}
-                range={[index * ((100 / testimonials.length)/100),1]}
+                range={[rangeStart,1]}
                 targetScale={targetScale}
                 progress={scrollYProgress}
               />
-            
           )})}
-
         </div>
       </div>
     </section>
@@ -64,9 +61,12 @@ const Testimonial = ({
   targetScale: number;
 }) => {
   const scale = useTransform(progress, range, [1, targetScale]);
+
+  console.log("name", name,  "targetScale", targetScale, "range", range,  "index", index);
+  
   
   return (
-    <motion.div className={`flex flex-col gap-6 sticky   rounded-2xl bg-light-base dark:bg-dark-base p-8`} 
+    <motion.div className={`  flex flex-col gap-6 sticky   rounded-2xl bg-light-base dark:bg-dark-base p-8`} 
       style={{top: `calc(10px + ${index * 100}px)`, scale: scale}}
 
     >
@@ -102,30 +102,22 @@ const Testimonial = ({
 };
 
 const ReadButton = () => {
-  const [isHovered, setIsHovered] = useState(false);
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
 
   return (
+    <AnimatePresence mode="popLayout">
     <motion.div
-      className="inline-flex h-fit min-h-6 min-w-6 cursor-pointer items-center overflow-hidden rounded-md  px-4 py-2"
+      className="inline-flex group h-fit w-fit min-h-6 min-w-6 cursor-pointer items-center overflow-hidden rounded-md  px-4 py-2"
       layout
       initial="initial"
-      animate="initial"
       whileHover="hover"
-      transition={{ duration: 0.5 }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      exit="exit"
+      transition={{ duration: 6.5 }}
+   
     >
       {/* Icon Container */}
       <div className="h-6 w-6 ">
-        <motion.svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
           <motion.path
             variants={{
               initial: {
@@ -135,7 +127,7 @@ const ReadButton = () => {
                 d: "M2 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7V21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H2V3Z",
               },
             }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 6.5 }}
             stroke="#115572"
             strokeWidth="2"
             strokeLinecap="round"
@@ -150,32 +142,34 @@ const ReadButton = () => {
                 d: "M22 3H16C14.9391 3 13.9217 3.42143 13.1716 4.17157C12.4214 4.92172 12 5.93913 12 7V21C12 20.2044 10.5161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H22V3Z",
               },
             }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 6.5 }}
             stroke="#115572"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-        </motion.svg>
+        </svg>
       </div>
 
       {/* Text */}
-      <AnimatePresence mode="popLayout">
-        {isHovered && (
+      
+        {/* {isHovered && ( */}
           <motion.span
-            className="text-nowrap pl-2 text-lg font-medium text-[#115471]"
-            initial={{ x: 30, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: 30, opacity: 0 }}
+            className="text-nowrap  text-lg font-medium text-[#115471]"
+            variants={{
+              initial: { x: 30, opacity: 0, width: 0, paddingLeft: 0 },
+              hover: { x: 0, opacity: 1, width: "auto", paddingLeft: 8 },
+              exit: { x: 30, opacity: 0, width: 0, paddingLeft: 0 },
+            }}
             transition={{
-              duration: 0.5,
+              duration: 6.5,
             }}
           >
             Read More
           </motion.span>
-        )}
-      </AnimatePresence>
+        {/* )} */}
     </motion.div>
+      </AnimatePresence>
   );
 };
 
@@ -196,8 +190,7 @@ const testimonials = [
     ]
   },
   {
-    image: "https://picsum.photos/100", name: "Yvonne Shek", title: "VP of Design", quote: ["I had the great pleasure of working with Bora. He expertly led the design of a key product. Bora is strong in understanding intricate (and often vague) requirements and translating them into various design options. He works incredibly well under pressure and tight timelines, while delivering quality design concepts. Bora is a skilled presenter and communicator. He would be an excellent asset to any product or service design team. Our team already misses him."
-    ]
+    image: "https://picsum.photos/100", name: "Yvonne Shek", title: "VP of Design", quote: ["I had the great pleasure of working with Bora. He expertly led the design of a key product. Bora is strong in understanding intricate (and often vague) requirements and translating them into various design options. He works incredibly well under pressure and tight timelines, while delivering quality design concepts. Bora is a skilled presenter and communicator. He would be an excellent asset to any product or service design team. Our team already misses him."]
   }
 
 ]

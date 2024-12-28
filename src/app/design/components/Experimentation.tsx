@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { IoChevronBack, IoChevronForward } from "react-icons/io5";
-import { H2, Reveal } from "@/components/Reveal";
+
+import { divVariants, H2 } from "@/components/Reveal";
 import { ProjectCard } from "@/components/subelements/ProjectCard";
+import { SliderNextArrow, SliderPrevArrow } from "@/components/subelements/SliderArrows";
 
 const projects = [
   { title: "Experiment 1", image: "https://picsum.photos/700" },
@@ -66,36 +67,28 @@ export const Experimentation = () => {
   
 
   return (
-    <section className="relative flex flex-col items-start justify-start gap-6 px-[5vw] py-20 overflow-x-hidden">
+    <motion.section className="relative flex flex-col items-start justify-start gap-6 px-[5vw] py-20 overflow-x-hidden "
+    initial="hidden"
+    whileInView="show"
+    variants={divVariants}  
+    viewport={{ once: true }} 
+    >
       <div className="items-center justify-center gap-4">
         <H2>Experimentation</H2>
       </div>
-      <Reveal>
-      <button
-          onClick={handlePrev}
-          className={`absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-light-base/90 dark:bg-dark-base/90 p-3 shadow-md transition-all ${
-            currentIndex > 0 ? "opacity-100 hover:scale-110" : "cursor-not-allowed opacity-40"
-          }`}
-          disabled={currentIndex <= 0}
-        >
-          <IoChevronBack size={24} className="text-light-body dark:text-dark-body"/>
-        </button>
-        </Reveal>
+
+      <SliderPrevArrow disabled={currentIndex <= 0 || true} handlePrev={handlePrev}/>
+      <SliderNextArrow disabled={currentIndex >= projects.length - visibleCards || true} handleNext={handleNext}/>
+      
+        
 
 
-        <Reveal>
-        <button
-          onClick={handleNext}
-          className={`absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-light-base/90 dark:bg-dark-base/90 p-3 shadow-md transition-all ${
-            currentIndex < projects.length - visibleCards ? "opacity-100 hover:scale-110" : "cursor-not-allowed opacity-40"
-          }`}
-          disabled={currentIndex >= projects.length - visibleCards}
-        >
-          <IoChevronForward size={24} className="text-light-body dark:text-dark-body"/>
-        </button>
-        </Reveal>
+        
+      <div className="absolute z-10 inset-0 w-full h-full flex bg-light-base/20 dark:bg-dark-base/20  items-center justify-center"><h3 className="text-light-body dark:text-dark-body">Coming Soon</h3></div>
+        
 
-      <div className="relative">
+      <div className="relative blur-lg">
+      
         <motion.div
           className="flex gap-4"
           animate={{ x: -currentIndex * (cardWidth + 16) }}
@@ -112,7 +105,7 @@ export const Experimentation = () => {
           ))}
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
