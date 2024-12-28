@@ -60,11 +60,7 @@ const Testimonial = ({
   range: number[];
   targetScale: number;
 }) => {
-  const scale = useTransform(progress, range, [1, targetScale]);
-
-  console.log("name", name,  "targetScale", targetScale, "range", range,  "index", index);
-  
-  
+  const scale = useTransform(progress, range, [1, targetScale]); 
   return (
     <motion.div className={`  flex flex-col gap-6 sticky   rounded-md  bg-light-base dark:bg-dark-base p-8`} 
       style={{top: `calc(10px + ${index * 100}px)`, scale: scale}}

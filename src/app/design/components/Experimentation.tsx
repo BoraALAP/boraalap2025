@@ -7,24 +7,19 @@ import { divVariants, H2 } from "@/components/Reveal";
 import { ProjectCard } from "@/components/subelements/ProjectCard";
 import { SliderNextArrow, SliderPrevArrow } from "@/components/subelements/SliderArrows";
 
+import EkarMobile from "../../../../public/design/experiments/EkarMobile.jpg";
+import EkarWeb from "../../../../public/design/experiments/EkarWeb.jpg";
+import Frank from "../../../../public/design/experiments/Frank.jpg";
+import Profillet from "../../../../public/design/experiments/Profillet.jpg";
+import ProfilletBranding from "../../../../public/design/experiments/ProfilletBranding.jpg";
+
 const projects = [
-  { title: "Experiment 1", image: "https://picsum.photos/700" },
-  { title: "Experiment 2", image: "https://picsum.photos/700" },
-  { title: "Experiment 3", image: "https://picsum.photos/700" },
-  { title: "Experiment 4", image: "https://picsum.photos/700" },
-  { title: "Experiment 5", image: "https://picsum.photos/700" },
-  { title: "Experiment 6", image: "https://picsum.photos/700" },
-  { title: "Experiment 7", image: "https://picsum.photos/700" },
-  { title: "Experiment 8", image: "https://picsum.photos/700" },
-  { title: "Experiment 9", image: "https://picsum.photos/700" },
-  { title: "Experiment 10", image: "https://picsum.photos/700" },
-  { title: "Experiment 11", image: "https://picsum.photos/700" },
-  { title: "Experiment 12", image: "https://picsum.photos/700" },
-  { title: "Experiment 13", image: "https://picsum.photos/700" },
-  { title: "Experiment 14", image: "https://picsum.photos/700" },
-  { title: "Experiment 15", image: "https://picsum.photos/700" },
-  { title: "Experiment 16", image: "https://picsum.photos/700" },
-  { title: "Experiment 17", image: "https://picsum.photos/700" },
+  { title: "Ekar Mobile", image: EkarMobile },
+  { title: "Ekar Web", image: EkarWeb },
+  { title: "Frank", image: Frank },
+  { title: "Profillet", image: Profillet },
+  { title: "Profillet Branding", image: ProfilletBranding },
+
 ];
 
 export const Experimentation = () => {
@@ -76,8 +71,8 @@ export const Experimentation = () => {
       </div>
       <div className="relative px-[5vw] w-screen">
         <div className="absolute z-10 inset-0 w-full h-full flex items-center justify-center"><h3 className="text-light-body dark:text-dark-body">Coming Soon</h3></div>  
-        <SliderPrevArrow disabled={currentIndex <= 0 || true} handlePrev={handlePrev}/>
-        <SliderNextArrow disabled={currentIndex >= projects.length - visibleCards || true} handleNext={handleNext}/>
+        <SliderPrevArrow disabled={currentIndex <= 0 } handlePrev={handlePrev}/>
+        <SliderNextArrow disabled={currentIndex >= projects.length - visibleCards } handleNext={handleNext}/>
         <div className="relative blur-lg opacity-50 overflow-x-hidden">
           <motion.div
             className="flex gap-4 w-fit"
@@ -88,7 +83,7 @@ export const Experimentation = () => {
               <ProjectCard
                 key={project.title}
                 title={project.title}
-                image={project.image}
+                image={project.image.src}
                 index={index}
                 onWidthChange={handleWidthChange}
               />

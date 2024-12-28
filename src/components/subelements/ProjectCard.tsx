@@ -22,17 +22,18 @@ export const ProjectCard = ({
       onWidthChange(width);
     }
   }, [onWidthChange]);
+console.log(image);
 
   return (
     <motion.div
       ref={cardRef}
-      className="relative   rounded-md  select-none"
+      className="relative     select-none"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
-      <div className=" inset-0  w-[400px] ">
+      <div className=" inset-0 rounded-md w-[400px] overflow-hidden ">
         <Image
           className="pointer-events-none object-cover select-none [-webkit-user-drag:none] [-webkit-touch-callout:none]"
           src={image}
