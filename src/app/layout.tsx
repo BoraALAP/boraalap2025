@@ -31,7 +31,7 @@ export default async function RootLayout({
     <html lang="en"  suppressHydrationWarning>
      
       <body 
-        className={`${rethinkSans.variable} antialiased  overflow-hidden`}
+        className={`${rethinkSans.variable} antialiased  overflow-x-hidden`}
       >
         <ReactLenis root>
         <Providers>
