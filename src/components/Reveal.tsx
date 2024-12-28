@@ -3,45 +3,45 @@ import {  motion } from "motion/react";
 
 
 const h2Variants = {
-  hidden: { opacity: 0, x: 60 },
-  show: { opacity: 1, x: 0 },
-  // exit: { opacity: 0, x: 60, transition: { duration: 0.5, delay: 0.15 } },
+  hidden: { opacity: 0, y: 60 },
+  show: { opacity: 1, y: 0 },
+  // exit: { opacity: 0, y: 60, transition: { duration: 0.5, delay: 0.15 } },
 }
 
 const h3Variants = {
-  hidden: { opacity: 0, x: 40 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.25 } },
-  // exit: { opacity: 0, x: 40, transition: { duration: 0.5, delay: 0.25 } },
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.25 } },
+  // exit: { opacity: 0, y: 40, transition: { duration: 0.5, delay: 0.25 } },
 }
 
 const h4Variants = {
-  hidden: { opacity: 0, x: 20 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.35 } },
-  // exit: { opacity: 0, x: 20, transition: { duration: 0.5, delay: 0.35 } },
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.35 } },
+  // exit: { opacity: 0, y: 20, transition: { duration: 0.5, delay: 0.35 } },
 } 
 
 const pVariants = {
-  hidden: { opacity: 0, x: 10 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.45 } },
-  // exit: { opacity: 0, x: 10, transition: { duration: 0.5, delay: 0.45 } },
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.45 } },
+  // exit: { opacity: 0, y: 10, transition: { duration: 0.5, delay: 0.45 } },
 } 
 
 const ulVariants = {
   hidden: { opacity: 0  },
   show: { opacity: 1,  transition: { delay: 0.45, staggerChildren: 0.15, when: "beforeChildren" } },
-  // exit: { opacity: 0, x: 10, transition: { duration: 0.5, delay: 0.25 } },
+  // exit: { opacity: 0, y: 10, transition: { duration: 0.5, delay: 0.25 } },
 } 
 
 const liVariants = {
-  hidden: { opacity: 0, x: 10 },
-  show: { opacity: 1,  x: 0},
-  // exit: { opacity: 0, x: 10, transition: { duration: 0.5, delay: 0.45 } },
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1,  y: 0},
+  // exit: { opacity: 0, y: 10, transition: { duration: 0.5, delay: 0.45 } },
 } 
 
 const divVariants = {
-  hidden: { opacity: 0, x: 30 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.35 } },
-  // exit: { opacity: 0, x: 30, transition: { duration: 0.5, delay: 0.35 } },
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.35 } },
+  // exit: { opacity: 0, y: 30, transition: { duration: 0.5, delay: 0.35 } },
   }
 
 export const Reveal = ({ children, className }: { children: React.ReactNode, className?: string }) => {
