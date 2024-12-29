@@ -81,4 +81,6 @@ li {
   @apply max-w-xl font-body text-base font-normal leading-relaxed tracking-tight text-light-body dark:text-dark-body;
 }
 
-
+.no-scroll {
+@apply overflow-hidden h-screen;
+}

@@ -6,23 +6,9 @@ import { motion } from "framer-motion";
 import { divVariants, H2 } from "@/components/Reveal";
 import { ProjectCard } from "@/components/subelements/ProjectCard";
 import { SliderNextArrow, SliderPrevArrow } from "@/components/subelements/SliderArrows";
+import { StaticImageData } from "next/image";
 
-import EkarMobile from "../../../../public/design/experiments/EkarMobile.jpg";
-import EkarWeb from "../../../../public/design/experiments/EkarWeb.jpg";
-import Frank from "../../../../public/design/experiments/Frank.jpg";
-import Profillet from "../../../../public/design/experiments/Profillet.jpg";
-import ProfilletBranding from "../../../../public/design/experiments/ProfilletBranding.jpg";
-
-const projects = [
-  { title: "Ekar Mobile", image: EkarMobile },
-  { title: "Ekar Web", image: EkarWeb },
-  { title: "Frank", image: Frank },
-  { title: "Profillet", image: Profillet },
-  { title: "Profillet Branding", image: ProfilletBranding },
-
-];
-
-export const Experimentation = () => {
+export const Experimentation = ({projects}: {projects: {title: string, image: StaticImageData}[]}) => {
   const [cardWidth, setCardWidth] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCards, setVisibleCards] = useState(1);
@@ -73,7 +59,7 @@ export const Experimentation = () => {
         <div className="absolute z-10 inset-0 w-full h-full flex items-center justify-center"><h3 className="text-light-body dark:text-dark-body">Coming Soon</h3></div>  
         <SliderPrevArrow disabled={currentIndex <= 0 } handlePrev={handlePrev}/>
         <SliderNextArrow disabled={currentIndex >= projects.length - visibleCards } handleNext={handleNext}/>
-        <div className="relative blur-lg opacity-50 overflow-x-hidden">
+        <div className="relative  opacity-50 overflow-x-hidden" style={{ filter: 'blur(10px)' }}>
           <motion.div
             className="flex gap-4 w-fit"
             animate={{ x: -currentIndex * (cardWidth + 16) }}

@@ -1,10 +1,25 @@
 import { Introduction } from "@/components/Introduction";
 import { Work } from "./components/Work";
-import { Experimentation } from "./components/Experimentation";
+import { Experimentation } from "@/components/Experimentation";
 import { MyStack } from "@/components/MyStack";
 import { Experiences } from "@/app/design/components/Experiences";
 import { Testimonials } from "@/app/design/components/Testimonials";
-// import { Testimonials } from "@/app/design/components/Testimonials2";
+
+import EkarMobile from "../../../public/design/experiments/EkarMobile.jpg";
+import EkarWeb from "../../../public/design/experiments/EkarWeb.jpg";
+import Frank from "../../../public/design/experiments/Frank.jpg";
+import Profillet from "../../../public/design/experiments/Profillet.jpg";
+import ProfilletBranding from "../../../public/design/experiments/ProfilletBranding.jpg";
+
+
+const projects = [
+  { title: "Ekar Mobile", image: EkarMobile },
+  { title: "Ekar Web", image: EkarWeb },
+  { title: "Frank", image: Frank },
+  { title: "Profillet", image: Profillet },
+  { title: "Profillet Branding", image: ProfilletBranding },
+];
+
 
 export default function DesignPage() {
   return (
@@ -18,7 +33,7 @@ export default function DesignPage() {
       <Work />
       <MyStack message="I’m dedicated to evolving my craft, embracing new tools and techniques to stay versatile and deliver meaningful, user-centered experiences." brand={{title: "Design", brands: ["Figma", "Jira", "Framer", "Play 2", "Spline"]}} />
       <Experiences /> 
-      <Experimentation />
+      <Experimentation projects={projects} />
       <Testimonials />
     </div>
   );

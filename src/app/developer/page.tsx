@@ -1,7 +1,21 @@
 import { Introduction } from "@/components/Introduction";
 import { MyStack } from "@/components/MyStack";
 import { Experiences } from "./components/Experiences";
-import { Work } from "./components/Work";
+import { Experimentation } from "@/components/Experimentation";
+
+import EkarMobile from "../../../public/development/experiments/EkarMobile.jpg";
+import EkarWeb from "../../../public/development/experiments/EkarWeb.jpg";
+import Frank from "../../../public/development/experiments/Frank.jpg";
+import Profillet from "../../../public/development/experiments/Profillet.jpg";
+import ProfilletBranding from "../../../public/development/experiments/ProfilletBranding.jpg";
+
+const projects = [
+  { title: "Ekar Mobile", image: EkarMobile },
+  { title: "Ekar Web", image: EkarWeb },
+  { title: "Frank", image: Frank },
+  { title: "Profillet", image: Profillet },
+  { title: "Profillet Branding", image: ProfilletBranding },
+];
 
 const DeveloperPage = () => {
   return (
@@ -15,7 +29,7 @@ const DeveloperPage = () => {
       </Introduction>
       <MyStack message="I strive to be versatile in my approach, continuously learning and adapting to new technologies to refine my skills and create robust, scalable solutions." brand={{ title: "Development", brands: ["React", "ReactNative", "Nextjs", "Expo", "Supabase", "Tailwind", "Cursor", "Framer", "Webflow"] }} />
       <Experiences />
-      <Work />
+      <Experimentation projects={projects} />
     </div>
   );
 }
