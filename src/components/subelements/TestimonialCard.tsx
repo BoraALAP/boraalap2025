@@ -1,10 +1,11 @@
 "use client"
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, useTransform, AnimatePresence, MotionValue } from "framer-motion";
 import { H3, H4, P } from "@/components/Reveal";
 import Image, { StaticImageData } from 'next/image'
 import { TestimonialsModal } from "../TestimonialsModal";
+import Lenis from "lenis";
 
 export const TestimonialCard = ({
   image,
@@ -27,6 +28,32 @@ export const TestimonialCard = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const scale = useTransform(progress, range, [1, targetScale]); 
+  
+
+  //if modal is open, block scroll using lenis
+  useEffect(() => {
+    const lenis = new Lenis({
+     
+    });
+
+    console.log(lenis);
+    
+
+    if (isOpen) {
+      console.log("stopping")
+      lenis.stop();
+    } else {
+      console.log("starting")
+      lenis.start();
+    }
+
+    return () => {
+      lenis.destroy();
+    };
+  },[isOpen]);
+
+
+
   return (
     <>
     <motion.div className={`  flex flex-col gap-6 sticky   rounded-2xl  bg-light-base dark:bg-dark-base p-8`} 

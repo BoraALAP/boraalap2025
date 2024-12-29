@@ -22,7 +22,7 @@ export const ProjectCard = ({
       onWidthChange(width);
     }
   }, [onWidthChange]);
-console.log(image);
+
 
   return (
     <motion.div

@@ -7,7 +7,7 @@ import { CloseButton } from './subelements/CloseButton'
 export const TestimonialsModal = ({quote, name, title, image, setIsOpen}: {quote?: string[], name: string, title: string, image: StaticImageData, setIsOpen: (isOpen: boolean) => void}) => {
 
   return (
-    <div className='h-screen w-screen fixed top-0 left-0 right-0 bottom-0 z-40  p-[5vw] pb-[calc(5vw+100px)] flex items-center justify-center'>
+    <div className='h-screen w-screen fixed top-0 left-0 right-0 bottom-0 z-40  p-[5vw] pb-[calc(5vw+100px)] flex items-center justify-center' id="testimonials-modal">
       <div className={`z-50 max-h-full  flex max-w-[640px] flex-col gap-6 rounded-2xl bg-light-base dark:bg-dark-base p-8`} 
       >
         <div className="flex flex-col gap-2">

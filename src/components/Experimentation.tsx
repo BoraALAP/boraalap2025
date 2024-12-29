@@ -46,7 +46,7 @@ export const Experimentation = ({projects}: {projects: {title: string, image: St
   };
 
   return (
-    <motion.section className="relative flex flex-col items-start justify-start gap-6 py-20"
+    <motion.section className="relative overflow-x-hidden flex flex-col items-start justify-start gap-6 py-20"
     initial="hidden"
     whileInView="show"
     variants={divVariants}  
