@@ -27,7 +27,7 @@ export default function DesignPage() {
       <Introduction title="Product Design Lead / Design Engineer" >
         <span className="line-through">Toronto</span>
         <span className="text-light-body dark:text-dark-body"> Amsterdam-based </span>
-        <span className="text-light-accentSoft dark:text-dark-accentSoft">Product Design Lead </span>
+        <span className="text-light-accent dark:text-dark-accent">Product Design Lead </span>
         who spends the day crafting delightful digital experiences and the night honing my development skills by bringing designs to life. Whether it’s perfecting a user journey or coding an interactive prototype, I’m always exploring ways to bridge creativity and technology.
       </Introduction>
       <Work />

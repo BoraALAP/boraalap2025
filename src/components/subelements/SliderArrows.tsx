@@ -9,6 +9,7 @@ export const SliderNextArrow = ({disabled, handleNext}: {disabled: boolean,  han
       !disabled ? "opacity-100 hover:scale-110" : "cursor-not-allowed opacity-40"
     }`}
     disabled={disabled}
+    aria-label="Next Button"
   >
     <IoChevronForward size={24} className="text-light-body dark:text-dark-body"/>
   </button>
@@ -23,6 +24,7 @@ export const SliderPrevArrow = ({disabled, handlePrev}: {disabled: boolean, hand
       !disabled ? "opacity-100 hover:scale-110" : "cursor-not-allowed opacity-40"
     }`}
     disabled={disabled }
+    aria-label="Previous Button"
   >
     <IoChevronBack size={24} className="text-light-body dark:text-dark-body"/>
   </button>

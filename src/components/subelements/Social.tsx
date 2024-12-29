@@ -14,7 +14,7 @@ export const Social = () => {
       exit={{  x: 60, rotate: 360 }}
       transition={{ duration: 0.8 }}
       >
-      <Link href="https://linkedin.com/in/boraalap">
+      <Link href="https://linkedin.com/in/boraalap" aria-label="Linkedin Logo">
         <Linkedin />
       </Link>
       </motion.div>
@@ -25,7 +25,7 @@ export const Social = () => {
       transition={{ duration: 0.8 }}
       >
 
-      <Link href="https://github.com/BoraALAP">
+      <Link href="https://github.com/BoraALAP" aria-label="Github Logo">
           <Github />
         </Link>
       </motion.div>
