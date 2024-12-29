@@ -34,6 +34,7 @@ export const FloatingHeader = () => {
     <AnimatePresence>
       {!isHeaderVisible && (
         <motion.header
+        tabIndex={-1}
           className="floating-header fixed bottom-6 left-1/2 justify-between z-50 pl-8 pr-2 py-2 bg-light-base dark:bg-dark-base overflow-hidden rounded-full flex items-center gap-6 w-[90vw] shadow-lg  max-w-96"
           initial={{ y: 100, opacity: 0, x: "-50%" }}
           animate={{ y: 0, opacity: 1  }}

@@ -5,7 +5,7 @@ import Link from "next/link";
 export const Footer = () => {
   return (
     <Reveal>
-    <footer className="flex flex-wrap items-center justify-between px-[5vw] py-12 pb-28 lg:pb-12">
+    <footer tabIndex={-1} className="flex flex-wrap items-center justify-between px-[5vw] py-12 pb-28 lg:pb-12">
       
       <Link href="https://www.linkedin.com/in/boraalap/" target="_blank" className="flex items-center justify-start gap-2">
         <P>

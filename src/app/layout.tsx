@@ -36,7 +36,7 @@ export default async function RootLayout({
         <ReactLenis root>
         <Providers>
           <Header />
-          <main className="md:rounded-b-4xl rounded-b-2xl md:shadow-2xl shadow-2xl  bg-light-bg dark:bg-dark-bg ">{children}</main>
+          <main tabIndex={-1} className="md:rounded-b-4xl rounded-b-2xl md:shadow-2xl shadow-2xl  bg-light-bg dark:bg-dark-bg ">{children}</main>
           <Footer />
           <FloatingHeader />
         </Providers>  
