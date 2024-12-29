@@ -8,7 +8,7 @@ import { ProjectCard } from "@/components/subelements/ProjectCard";
 import { SliderNextArrow, SliderPrevArrow } from "@/components/subelements/SliderArrows";
 import { StaticImageData } from "next/image";
 
-export const Experimentation = ({projects}: {projects: {title: string, image: StaticImageData}[]}) => {
+export const Experimentation = ({projects}: {projects: {title: string, description: string, href?: string, image?: StaticImageData, ComingSoon?: boolean}[]}) => {
   const [cardWidth, setCardWidth] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCards, setVisibleCards] = useState(1);
@@ -53,13 +53,12 @@ export const Experimentation = ({projects}: {projects: {title: string, image: St
     viewport={{ once: true }} 
     >
       <div className="items-center justify-center gap-4 px-[5vw]">
-        <H2>Projects</H2>
+        <H2>Side Projects / Experiments</H2>
       </div>
       <div className="relative px-[5vw] w-screen">
-        <div className="absolute z-10 inset-0 w-full h-full flex items-center justify-center"><h3 className="text-light-body dark:text-dark-body">Coming Soon</h3></div>  
         <SliderPrevArrow disabled={currentIndex <= 0 } handlePrev={handlePrev}/>
         <SliderNextArrow disabled={currentIndex >= projects.length - visibleCards } handleNext={handleNext}/>
-        <div className="relative  opacity-50 overflow-x-hidden" style={{ filter: 'blur(10px)' }}>
+        <div className="relative  " >
           <motion.div
             className="flex gap-4 w-fit"
             animate={{ x: -currentIndex * (cardWidth + 16) }}
@@ -67,11 +66,14 @@ export const Experimentation = ({projects}: {projects: {title: string, image: St
           >
             {projects.map((project, index) => (
               <ProjectCard
-                key={project.title}
+                key={index}
                 title={project.title}
-                image={project.image.src}
+                image={project.image?.src}
                 index={index}
                 onWidthChange={handleWidthChange}
+                description={project.description}
+                href={project.href}
+                ComingSoon={project.ComingSoon}
               />
             ))}
           </motion.div>

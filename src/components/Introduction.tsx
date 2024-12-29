@@ -22,8 +22,13 @@ export const Introduction = ({title, children}: {title: string, children: React.
       />
       </Reveal>
       <div className="flex flex-col items-start justify-start gap-6">
-        <H2 className="text-light-body dark:text-dark-body">
-          {title}
+        <H2 className="text-xl text-light-body dark:text-dark-body">
+          {title.split("/").map((word, index) => (
+            <span key={index} className="even:text-light-softBody dark:even:text-dark-softBody">
+              {word}
+              {index < title.split("/").length - 1 && "/"}
+            </span>
+          ))}
         </H2>
         <Reveal>
         <P className="text-lg font-medium leading-normal text-light-softBody dark:text-dark-softBody">

@@ -102,6 +102,7 @@ const ReadButton = ({setIsOpen}: {setIsOpen: (isOpen: boolean) => void}) => {
   return (
     <AnimatePresence mode="popLayout">
     <motion.div
+    tabIndex={-1}
       className="inline-flex group h-fit w-fit min-h-6 min-w-6 cursor-pointer items-center overflow-hidden rounded-md  px-4 py-2"
       layout
       initial="initial"

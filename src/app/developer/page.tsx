@@ -3,18 +3,16 @@ import { MyStack } from "@/components/MyStack";
 import { Experiences } from "./components/Experiences";
 import { Experimentation } from "@/components/Experimentation";
 
-import EkarMobile from "../../../public/development/experiments/EkarMobile.jpg";
-import EkarWeb from "../../../public/development/experiments/EkarWeb.jpg";
-import Frank from "../../../public/development/experiments/Frank.jpg";
-import Profillet from "../../../public/development/experiments/Profillet.jpg";
-import ProfilletBranding from "../../../public/development/experiments/ProfilletBranding.jpg";
+import Hiroo from "../../../public/experiments/Hiroo.jpg";
+import Profillet from "../../../public/experiments/Profillet.jpg";
+import Frank from "../../../public/experiments/Frank.jpg";
 
 const projects = [
-  { title: "Ekar Mobile", image: EkarMobile },
-  { title: "Ekar Web", image: EkarWeb },
-  { title: "Frank", image: Frank },
-  { title: "Profillet", image: Profillet },
-  { title: "Profillet Branding", image: ProfilletBranding },
+  { title: "Profillet", description: "Webflow / Freelance", href: "https://profillet.com", image: Profillet },
+  { title: "Hiroo", description: "Webflow / Freelance", href: "https://hiroo.co", image: Hiroo },
+  { title: "Frank", description: "NextJS - Strapi/ Freelance", href: "https://frank.com", image: Frank },
+  { title: "DIY Guide", description: "Side Project / Coming Soon", ComingSoon: true },
+  { title: "Collectors Hub", description: "Side Project / Coming Soon", ComingSoon: true },
 ];
 
 const DeveloperPage = () => {

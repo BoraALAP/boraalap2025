@@ -37,7 +37,7 @@ export const ExperienceCard = ({
       <h5 className={"shrink grow basis-0 text-base font-semibold text-light-body dark:text-dark-body " + (freelance ? "opacity-50" : "opacity-100")}>
         {company}
       </h5>
-      <P className={"shrink grow basis-0 text-base font-semibold text-light-softBody dark:text-dark-softBody " + (freelance ? "opacity-50" : "opacity-100")}>
+      <P className={"shrink grow basis-0 text-base font-semibold text-light-accent dark:text-dark-accent " + (freelance ? "opacity-50" : "opacity-100")}>
         {title}
       </P>
     </motion.div>

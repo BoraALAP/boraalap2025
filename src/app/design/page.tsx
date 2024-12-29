@@ -5,21 +5,20 @@ import { MyStack } from "@/components/MyStack";
 import { Experiences } from "@/app/design/components/Experiences";
 import { Testimonials } from "@/app/design/components/Testimonials";
 
-import EkarMobile from "../../../public/design/experiments/EkarMobile.jpg";
-import EkarWeb from "../../../public/design/experiments/EkarWeb.jpg";
-import Frank from "../../../public/design/experiments/Frank.jpg";
-import Profillet from "../../../public/design/experiments/Profillet.jpg";
-import ProfilletBranding from "../../../public/design/experiments/ProfilletBranding.jpg";
+import EkarMobile from "../../../public/experiments/EkarMobile.jpg";
+import EkarWeb from "../../../public/experiments/EkarWeb.jpg";
+import Hiroo from "../../../public/experiments/Hiroo.jpg";
+import Profillet from "../../../public/experiments/Profillet.jpg";
+import ProfilletBranding from "../../../public/experiments/ProfilletBranding.jpg";
 
 
 const projects = [
-  { title: "Ekar Mobile", image: EkarMobile },
-  { title: "Ekar Web", image: EkarWeb },
-  { title: "Frank", image: Frank },
-  { title: "Profillet", image: Profillet },
-  { title: "Profillet Branding", image: ProfilletBranding },
+  { title: "Ekar", description: "Mobile App Design / Freelance", image: EkarMobile },
+  { title: "Ekar", description: "Web Design / Freelance", image: EkarWeb },
+  { title: "Profillet", description: "Web Design / Freelance", href: "https://profillet.com", image: Profillet },
+  { title: "Profillet", description: "Branding / Freelance", image: ProfilletBranding },
+  { title: "Hiroo", description: "Web Design / Freelance", href: "https://hiroo.co", image: Hiroo },
 ];
-
 
 export default function DesignPage() {
   return (

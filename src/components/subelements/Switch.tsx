@@ -34,14 +34,23 @@ export const Switch = () => {
     // });
   }
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault(); // Prevent default scroll behavior for Space key
+      handleSwitch();
+    }
+  };
+
   return (
     <motion.div 
+    tabIndex={0}
       className={`relative rounded-full shadow-md border border-light-softLight dark:border-dark-softLight w-14 p-0.5 items-center gap-2 inline-flex overflow-hidden transition-colors duration-300 ${
         isDev 
           ? "justify-end bg-[#00f508]" 
           : "justify-start bg-light-bg dark:bg-dark-bg"
       }`} 
       onClick={handleSwitch}
+      onKeyDown={handleKeyDown}
       initial={{ opacity: 0, y: -50  }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 50 }}

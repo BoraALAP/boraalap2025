@@ -103,7 +103,7 @@ export const Experiences = () => {
               Bachelor&apos;s degree - Creative Advertising
             </h5>
             <P className="self-stretch font-semibold text-light-softBody dark:text-dark-softBody">
-              Humber College - Toronto / Canada
+              Humber College - <span className="text-light-accent dark:text-dark-accent">Toronto / Canada</span>
             </P>
           </motion.div>
         </div>
