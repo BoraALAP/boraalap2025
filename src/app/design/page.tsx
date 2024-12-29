@@ -13,11 +13,11 @@ import ProfilletBranding from "../../../public/experiments/ProfilletBranding.jpg
 
 
 const projects = [
+  { title: "Hiroo", description: "Web Design / Freelance", href: "https://hiroo.co", image: Hiroo },
+  { title: "Profillet", description: "Branding / Freelance", image: ProfilletBranding },
+  { title: "Profillet", description: "Web Design / Freelance", href: "https://profillet.com", image: Profillet },
   { title: "Ekar", description: "Mobile App Design / Freelance", image: EkarMobile },
   { title: "Ekar", description: "Web Design / Freelance", image: EkarWeb },
-  { title: "Profillet", description: "Web Design / Freelance", href: "https://profillet.com", image: Profillet },
-  { title: "Profillet", description: "Branding / Freelance", image: ProfilletBranding },
-  { title: "Hiroo", description: "Web Design / Freelance", href: "https://hiroo.co", image: Hiroo },
 ];
 
 export default function DesignPage() {

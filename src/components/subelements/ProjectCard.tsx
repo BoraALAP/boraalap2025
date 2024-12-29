@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useRef, useEffect } from "react";
 import { H3, P } from "../Reveal";
 import Link from "next/link";
+import { IoArrowForward } from "react-icons/io5";
 
 export const ProjectCard = ({
   title,
@@ -35,23 +36,28 @@ export const ProjectCard = ({
   return (
     <motion.div
       ref={cardRef}
-      className="relative select-none"
+      className="relative select-none rounded-md overflow-hidden max-w-[400px] w-[80vw] md:max-w-[640px]"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
-      <div className="absolute bottom-0 left-0 w-2/3 h-fit">
-        <H3 className="text-light-body dark:text-dark-body">{title}</H3>
-        {description && <P className="text-light-softBody dark:text-dark-softBody">
-          {description}
-        </P>}
-        {href && <Link href={href} className="text-light-accent dark:text-dark-accent">
-          View Project
+      <motion.div className="absolute bottom-0 left-0 w-2/3 h-fit px-8 py-6 pr-12 bg-light-base dark:bg-dark-base rounded-tr-full drop-shadow-2xl flex items-center justify-between gap-2"
+      >
+        <div className="flex flex-col items-start justify-start gap-2">
+          <H3 className="text-light-body dark:text-dark-body">{title}</H3>
+          {ComingSoon ? <h3 className="text-light-body dark:text-dark-body">Coming Soon</h3> : 
+          description && <P className="text-light-softBody dark:text-dark-softBody">
+            {description}
+          </P>}
+        </div>
+        {href && <Link href={href} className="">
+          <div className="flex items-center justify-center text-light-accent dark:text-dark-accent p-4 rounded-full bg-light-bg dark:bg-dark-bg">
+            <IoArrowForward className="text-light-accent dark:text-dark-accent" size={24} />
+          </div>
         </Link>}
-        {ComingSoon && <h3 className="text-light-body dark:text-dark-body">Coming Soon</h3>}
-      </div>
-      <div className=" inset-0 rounded-md w-[400px] overflow-hidden ">
+      </motion.div>
+      <div className=" inset-0  w-full h-full  overflow-hidden ">
         {image && <Image
           className="pointer-events-none object-cover select-none [-webkit-user-drag:none] [-webkit-touch-callout:none]"
           src={image}

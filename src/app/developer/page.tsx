@@ -6,13 +6,13 @@ import { Experimentation } from "@/components/Experimentation";
 import Hiroo from "../../../public/experiments/Hiroo.jpg";
 import Profillet from "../../../public/experiments/Profillet.jpg";
 import Frank from "../../../public/experiments/Frank.jpg";
-
+import CollectorsHub from "../../../public/experiments/CollectorsHubBranding.jpg";
 const projects = [
-  { title: "Profillet", description: "Webflow / Freelance", href: "https://profillet.com", image: Profillet },
+  { title: "Collectors Hub", description: "Side Project", image: CollectorsHub, ComingSoon: true },
+  { title: "DIY Guide", description: "Side Project", ComingSoon: true },
   { title: "Hiroo", description: "Webflow / Freelance", href: "https://hiroo.co", image: Hiroo },
+  { title: "Profillet", description: "Webflow / Freelance", href: "https://profillet.com", image: Profillet },
   { title: "Frank", description: "NextJS - Strapi/ Freelance", href: "https://frank.com", image: Frank },
-  { title: "DIY Guide", description: "Side Project / Coming Soon", ComingSoon: true },
-  { title: "Collectors Hub", description: "Side Project / Coming Soon", ComingSoon: true },
 ];
 
 const DeveloperPage = () => {
