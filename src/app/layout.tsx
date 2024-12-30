@@ -8,6 +8,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingHeader } from "@/components/FloatingHeader";
 import { Providers } from "@/utils/themeProvider";
+import { Analytics } from "@vercel/analytics/react"
 
 
 const rethinkSans = Rethink_Sans({
@@ -29,10 +30,10 @@ export default async function RootLayout({
  
   return (
     <html lang="en"  suppressHydrationWarning>
-     
+      <Analytics/>
       <body 
         className={`${rethinkSans.variable} antialiased  `}
-      >
+        >
         <ReactLenis root>
         <Providers>
           <Header />
