@@ -78,14 +78,14 @@ export const CircleCursor = ({word = "Scroll Down"}: {word?: string}) => {
 
   return (
     <motion.div
-      className={`pointer-events-none fixed left-0 top-0 z-50 hidden items-center justify-center group-hover/hero:block`}
+      className={`pointer-events-none fixed left-0 top-0 z-50 hidden items-center justify-center group-hover/hero:flex`}
       style={{
         x: cursorXSpring,
         y: cursorYSpring,
       }}
     >
       <motion.div
-        className="relative  flex items-center justify-center rounded-full"
+        className="relative   rounded-full"
         animate={{ rotate: 360 }}
         transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
       >
