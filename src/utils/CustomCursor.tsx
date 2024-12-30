@@ -32,7 +32,7 @@ export const ViewProjectCursor = () => {
     
   return (
     <motion.div
-    className="pointer-events-none fixed left-0 top-0 z-50 hidden rounded-full bg-light-accent px-4 py-2 group-hover/work:block"
+    className="pointer-events-none fixed left-0 top-0 z-50 hidden rounded-full bg-light-accent px-4 py-2 group-hover:block"
     style={{
       x: cursorXSpring,
       y: cursorYSpring,
@@ -78,7 +78,7 @@ export const CircleCursor = ({word = "Scroll Down"}: {word?: string}) => {
 
   return (
     <motion.div
-      className={`pointer-events-none fixed left-0 top-0 z-50 hidden items-center justify-center group-hover/hero:flex`}
+      className={`pointer-events-none fixed left-0 top-0 z-50 hidden items-center justify-center group-hover:flex`}
       style={{
         x: cursorXSpring,
         y: cursorYSpring,

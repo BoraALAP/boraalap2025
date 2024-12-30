@@ -8,7 +8,7 @@ import { CircleCursor } from '@/utils/CustomCursor'
 export const Hero = ({title, subtitle, src}: {title: string, subtitle: string, src: string}) => {
   return (
     
-    <section className="group/hero relative h-[80vh] w-full overflow-hidden"
+    <section className="group cursor-none relative h-[80vh] w-full overflow-hidden"
    >
      <CircleCursor word="Scroll Down" />
       {/* Background Image */}
