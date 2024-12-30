@@ -6,7 +6,7 @@ import { Experiences } from "@/app/design/components/Experiences";
 import { Testimonials } from "@/app/design/components/Testimonials";
 
 import EkarMobile from "../../../public/experiments/EkarMobile.jpg";
-import EkarWeb from "../../../public/experiments/EkarWeb.jpg";
+// import EkarWeb from "../../../public/experiments/EkarWeb.jpg";
 import Hiroo from "../../../public/experiments/Hiroo.jpg";
 import Profillet from "../../../public/experiments/Profillet.jpg";
 import ProfilletBranding from "../../../public/experiments/ProfilletBranding.jpg";
@@ -17,7 +17,7 @@ const projects = [
   { title: "Profillet", description: "Branding / Freelance", image: ProfilletBranding },
   { title: "Profillet", description: "Web Design / Freelance", href: "https://profillet.ca", image: Profillet },
   { title: "Ekar", description: "Mobile App Design / Freelance", image: EkarMobile },
-  { title: "Ekar", description: "Web Design / Freelance", image: EkarWeb },
+  // { title: "Ekar", description: "Web Design / Freelance", image: EkarWeb },
 ];
 
 export default function DesignPage() {
