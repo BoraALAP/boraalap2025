@@ -7,12 +7,14 @@ import Hiroo from "../../../public/experiments/Hiroo.jpg";
 import Profillet from "../../../public/experiments/Profillet.jpg";
 import Frank from "../../../public/experiments/Frank.jpg";
 import CollectorsHub from "../../../public/experiments/CollectorsHubBranding.jpg";
+import DIYGuide from "../../../public/experiments/DIYGuide.jpg";
+
 const projects = [
   { title: "Collectors Hub", description: "Side Project", image: CollectorsHub, ComingSoon: true },
-  { title: "DIY Guide", description: "Side Project", ComingSoon: true },
+  { title: "DIY Guide", description: "Side Project", image: DIYGuide, ComingSoon: true },
   { title: "Hiroo", description: "Webflow / Freelance", href: "https://hiroo.co", image: Hiroo },
-  { title: "Profillet", description: "Webflow / Freelance", href: "https://profillet.com", image: Profillet },
   { title: "Frank", description: "NextJS - Strapi/ Freelance", href: "https://frank.com", image: Frank },
+  { title: "Profillet", description: "Webflow / Freelance", href: "https://profillet.ca", image: Profillet },
 ];
 
 const DeveloperPage = () => {
