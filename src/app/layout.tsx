@@ -8,7 +8,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingHeader } from "@/components/FloatingHeader";
 import { Providers } from "@/utils/themeProvider";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/next"
 
 
 const rethinkSans = Rethink_Sans({
