@@ -30,7 +30,6 @@ export default async function RootLayout({
  
   return (
     <html lang="en"  suppressHydrationWarning>
-      <Analytics/>
       <body 
         className={`${rethinkSans.variable} antialiased  `}
         >
@@ -42,6 +41,7 @@ export default async function RootLayout({
           <FloatingHeader />
         </Providers>  
         </ReactLenis>
+          <Analytics/>
       </body>
     </html>
   );
