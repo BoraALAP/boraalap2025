@@ -21,6 +21,7 @@ const projects = [
 ];
 
 export default function DesignPage() {
+  
   return (
     <div className="">
       <Introduction title="Product Design Lead / Design Engineer" >

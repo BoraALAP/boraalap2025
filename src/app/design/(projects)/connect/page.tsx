@@ -17,6 +17,8 @@ import discovery from "../../../../../public/projects/connect/discovery.jpg"
 import persona from "../../../../../public/projects/connect/persona.png"
 import process from "../../../../../public/projects/connect/process.jpg"
 
+
+
 const sections = [
   {
     title: "Project Overview",

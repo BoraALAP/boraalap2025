@@ -60,8 +60,8 @@ export const Experimentation = ({projects}: {projects: {title: string, descripti
         <SliderNextArrow disabled={currentIndex >= projects.length - visibleCards } handleNext={handleNext}/>
         <div className="relative  " >
           <motion.div
-            className="flex gap-4 w-fit"
-            animate={{ x: -currentIndex * (cardWidth + 16) }}
+            className="flex gap-8 w-fit"
+            animate={{ x: -currentIndex * (cardWidth + 32) }}
             transition={{ type: "spring", stiffness: 150, damping: 20 }}
           >
             {projects.map((project, index) => (

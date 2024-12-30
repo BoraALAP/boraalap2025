@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { H3,P } from "@/components/Reveal";
-import { ViewProjectCursor } from "@/utils/ViewProjectCursor";
+import { ViewProjectCursor } from "@/utils/CustomCursor";
 
 
 export const WorkCard = ({
@@ -26,12 +26,12 @@ export const WorkCard = ({
     <Link
       href={link}
     >
-       <motion.div
+      <motion.div
       initial={{ opacity: 0}}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.2 }}
       viewport={{ once: true }}
-      className="group w-full relative inline-flex cursor-none flex-col items-start overflow-hidden justify-start rounded-md  lg:pb-28"
+      className="group/work w-full relative inline-flex cursor-none flex-col items-start overflow-hidden justify-start rounded-md  lg:pb-28"
     >
       <ViewProjectCursor />
       <div className="relative aspect-square h-full w-full md:mb-10">

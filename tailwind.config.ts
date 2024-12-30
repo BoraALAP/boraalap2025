@@ -7,6 +7,7 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/styles/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/assets/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/utils/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
