@@ -1,6 +1,6 @@
 "use client";
 import { useScrollToSection } from "@/utils/scroll";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 export const SideNavItem = ({
   title,
   active,

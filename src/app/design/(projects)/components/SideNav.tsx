@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { SideNavItem } from "./SideNavItem";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 export const SideNav = ({
   sections,
   activeSection,

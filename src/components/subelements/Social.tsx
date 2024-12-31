@@ -2,7 +2,7 @@
 import { Github } from '@/assets/Github';
 import { Linkedin } from '@/assets/Linkedin';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 
 export const Social = () => {

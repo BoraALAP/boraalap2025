@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import { motion, useTransform, AnimatePresence, MotionValue } from "framer-motion";
+import { motion, useTransform, AnimatePresence, MotionValue } from "motion/react";
 import { H3, H4, P } from "@/components/Reveal";
 import Image, { StaticImageData } from 'next/image'
 import { TestimonialsModal } from "../TestimonialsModal";

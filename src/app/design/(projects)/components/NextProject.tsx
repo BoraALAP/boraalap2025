@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import React, { useEffect } from 'react'
 import { FaChevronRight } from 'react-icons/fa'
-import {motion} from 'framer-motion'
+import {motion} from 'motion/react'
 import { useAnimate } from 'motion/react'
 
 export const NextProject = ({href, title}: {href: string, title: string}) => {

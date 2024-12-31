@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 import { divVariants, H2 } from "@/components/Reveal";
 import { ProjectCard } from "@/components/subelements/ProjectCard";
