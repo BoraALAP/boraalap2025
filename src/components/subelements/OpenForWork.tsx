@@ -1,10 +1,13 @@
 "use client"
 import { AnimatePresence, motion } from 'motion/react'
 import React from 'react'
+import Link from 'next/link'
+// import { External } from '@/assets/External'
 
 export const OpenForWork = () => {
   return (
-    <motion.div className="flex items-center gap-4 overflow-hidden rounded-full bg-light-base dark:bg-dark-base p-4"
+    <Link href="https://linkedin.com/in/boraalap" target="_blank">
+    <motion.div className="flex items-center gap-4 overflow-hidden rounded-full bg-light-base dark:bg-dark-base hover:bg-[#0a66c2] transition-colors duration-500 ease-in-out p-4"
     initial={{ opacity: 0, x: 30 }}
     whileInView={{ opacity: 1, x: 0 }}
     transition={{  delay: 0.5, duration: 0.5}}
@@ -22,17 +25,21 @@ export const OpenForWork = () => {
       
       viewport={{ once: true }}
       />
-<AnimatePresence>
-  {/* {show && ( */}
-      <motion.small className=""
-      initial={{ opacity: 0, x: 30 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: 30 }}
-      transition={{ duration: 0.5, delay: 0.45 }}
-      viewport={{ once: true }}
-      >Open for Work and Collabration</motion.small>
+      <AnimatePresence>
+      {/* {show && ( */}
+        <motion.small className=""
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: 30 }}
+        transition={{ duration: 0.5, delay: 0.45 }}
+        viewport={{ once: true }}
+        >Open for Work and Collabration</motion.small>
+        {/* <div className="relative h-6 w-6 overflow-hidden">
+          <External />
+        </div> */}
       {/* )} */}
       </AnimatePresence>
     </motion.div>
+    </Link>
   )
 }

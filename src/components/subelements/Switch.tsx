@@ -41,24 +41,48 @@ export const Switch = () => {
     }
   };
 
+  const variants = {
+    initial: { scale :1, opacity: 0, y: -50 },
+    animate: { scale: 1, opacity: 1, y: 0 },
+    exit: { scale: 1, opacity: 0, y: 50 },
+   
+    
+  }
+  const pinVariants = {
+    initial: { scale: 1 },
+    whileTap: { scale: 0.5 },
+    whileHover: { scale: 1.5 },
+  }
+
   return (
     <motion.div 
+    initial="initial"
+    animate="animate"
+    exit="exit"
+  
+    transition={{ duration: 0.6, delay: 0.3, ease: "easeInOut" }}
+    variants={variants}
+    
     tabIndex={0}
-      className={`relative rounded-full shadow-md border border-light-softLight dark:border-dark-softLight w-14 p-0.5 items-center gap-2 inline-flex overflow-hidden transition-colors duration-300 ${
+      className={`relative group rounded-full shadow-md border border-light-softLight dark:border-dark-softLight w-14 p-0.5 items-center gap-2 inline-flex  transition-colors duration-300 ${
         isDev 
           ? "justify-end bg-[#00f508]" 
           : "justify-start bg-light-bg dark:bg-dark-bg"
       }`} 
       onClick={handleSwitch}
       onKeyDown={handleKeyDown}
-      initial={{ opacity: 0, y: -50  }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 50 }}
-      transition={{ duration: 0.6, delay: 0.3, ease: "easeInOut" }}
+      
+      
+      
+      
     >
       <motion.div 
         layout 
         transition={{ ease: "easeInOut", duration: 0.3 }} 
+        variants={pinVariants}
+        whileTap="whileTap"
+    whileHover="whileHover"
+     
         className="flex justify-center items-center w-7 h-7 relative bg-light-base dark:bg-dark-base rounded-full shadow-sm border border-light-softLight dark:border-dark-softLight overflow-hidden"
       >
         <DevLogo />
