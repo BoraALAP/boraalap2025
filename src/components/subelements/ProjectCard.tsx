@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import Image from "next/image";
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { H3, P } from "../Reveal";
 import Link from "next/link";
 import { IoArrowForward } from "react-icons/io5";
@@ -13,6 +13,7 @@ export const ProjectCard = ({
   index,
   ComingSoon,
   onWidthChange,
+  component
 }: {
   title: string;
   description?: string;
@@ -21,6 +22,7 @@ export const ProjectCard = ({
   index: number;
   ComingSoon?: boolean;
   onWidthChange: (width: number) => void;
+  component?: React.ComponentType<unknown>;
 }) => {
   const cardRef = useRef<HTMLDivElement | null>(null);
 
@@ -45,7 +47,7 @@ export const ProjectCard = ({
         viewport={{ once: true }}
         transition={{ duration: 0.75, ease: "easeInOut" }}
       >
-           <div className="   overflow-hidden max-w-[400px] w-[80vw] md:max-w-[640px] ">
+           <div className="   overflow-hidden max-w-[400px] w-[80vw] md:max-w-[640px]  ">
           {image && <Image
             className="pointer-events-none object-cover select-none [-webkit-user-drag:none] [-webkit-touch-callout:none]"
             src={image}
@@ -56,8 +58,13 @@ export const ProjectCard = ({
             draggable={false}
             unoptimized
           />}
+          {component && (
+            <motion.div className="w-full h-full aspect-square  ">
+              {React.createElement(component)}
+            </motion.div>
+          )}
         </div>
-        <motion.div className={"h-fit px-8 py-6 pr-12   drop-shadow-2xl flex items-center justify-between gap-2 duration-300 ease-in-out" + (href !== undefined ? " group-hover:bg-light-body dark:group-hover:bg-dark-body" : " ")}
+        <motion.div className={"h-fit px-8 py-6 pr-12 drop-shadow-2xl flex items-center justify-between gap-2 duration-300 ease-in-out" + (href !== undefined ? " group-hover:bg-light-body dark:group-hover:bg-dark-body" : "")}
         >
           <div className="flex flex-col items-start justify-start gap-1">
             <H3 className={"text-light-body dark:text-dark-body " + (href !== undefined ? "group-hover:text-light-base dark:group-hover:text-dark-base" : "")}>{title}</H3>

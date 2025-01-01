@@ -8,8 +8,10 @@ import Profillet from "../../../public/experiments/Profillet.jpg";
 import Frank from "../../../public/experiments/Frank.jpg";
 import CollectorsHub from "../../../public/experiments/CollectorsHubBranding.jpg";
 import DIYGuide from "../../../public/experiments/DIYGuide.jpg";
+import {DarkCircles} from "./components/experiments/DarkCircles";
 
 const projects = [
+  { title: "Dark Circles", description: "Experimentation", component: DarkCircles },
   { title: "Collectors Hub", description: "Side Project", image: CollectorsHub, ComingSoon: true },
   { title: "DIY Guide", description: "Side Project", image: DIYGuide, ComingSoon: true },
   { title: "Hiroo", description: "Webflow / Freelance", href: "https://hiroo.co", image: Hiroo },

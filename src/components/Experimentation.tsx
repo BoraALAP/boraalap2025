@@ -8,7 +8,20 @@ import { ProjectCard } from "@/components/subelements/ProjectCard";
 import { SliderNextArrow, SliderPrevArrow } from "@/components/subelements/SliderArrows";
 import { StaticImageData } from "next/image";
 
-export const Experimentation = ({projects}: {projects: {title: string, description: string, href?: string, image?: StaticImageData, ComingSoon?: boolean}[]}) => {
+interface Project {
+  title: string;
+  description: string;
+  href?: string;
+  image?: StaticImageData;
+  ComingSoon?: boolean;
+  component?: React.ComponentType<unknown>;
+}
+
+interface ExperimentationProps {
+  projects: Project[];
+}
+
+export const Experimentation = ({projects}: ExperimentationProps) => {
   const [cardWidth, setCardWidth] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCards, setVisibleCards] = useState(1);
@@ -74,6 +87,7 @@ export const Experimentation = ({projects}: {projects: {title: string, descripti
                 description={project.description}
                 href={project.href}
                 ComingSoon={project.ComingSoon}
+                component={project.component}
               />
             ))}
           </motion.div>
