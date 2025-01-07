@@ -5,7 +5,10 @@ import { motion } from "motion/react";
 
 import { divVariants, H2 } from "@/components/Reveal";
 import { ProjectCard } from "@/components/subelements/ProjectCard";
-import { SliderNextArrow, SliderPrevArrow } from "@/components/subelements/SliderArrows";
+import {
+  SliderNextArrow,
+  SliderPrevArrow,
+} from "@/components/subelements/SliderArrows";
 import { StaticImageData } from "next/image";
 
 interface Project {
@@ -21,7 +24,7 @@ interface ExperimentationProps {
   projects: Project[];
 }
 
-export const Experimentation = ({projects}: ExperimentationProps) => {
+export const Experimentation = ({ projects }: ExperimentationProps) => {
   const [cardWidth, setCardWidth] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCards, setVisibleCards] = useState(1);
@@ -59,21 +62,25 @@ export const Experimentation = ({projects}: ExperimentationProps) => {
   };
 
   return (
-    <motion.section className="relative overflow-x-hidden flex flex-col items-start justify-start gap-6 py-20"
-    initial="hidden"
-    whileInView="show"
-    variants={divVariants}  
-    viewport={{ once: true }} 
+    <motion.section
+      className="relative flex flex-col items-start justify-start gap-6 overflow-x-hidden py-20"
+      initial="hidden"
+      whileInView="show"
+      variants={divVariants}
+      viewport={{ once: true }}
     >
       <div className="items-center justify-center gap-4 px-[5vw]">
         <H2>Side Projects / Experiments</H2>
       </div>
-      <div className="relative px-[5vw] w-screen">
-        <SliderPrevArrow disabled={currentIndex <= 0 } handlePrev={handlePrev}/>
-        <SliderNextArrow disabled={currentIndex >= projects.length - visibleCards } handleNext={handleNext}/>
-        <div className="relative  " >
+      <div className="relative w-screen px-[5vw]">
+        <SliderPrevArrow disabled={currentIndex <= 0} handlePrev={handlePrev} />
+        <SliderNextArrow
+          disabled={currentIndex >= projects.length - visibleCards}
+          handleNext={handleNext}
+        />
+        <div className="relative">
           <motion.div
-            className="flex gap-8 w-fit"
+            className="flex w-fit gap-8"
             animate={{ x: -currentIndex * (cardWidth + 32) }}
             transition={{ type: "spring", stiffness: 150, damping: 20 }}
           >
@@ -96,5 +103,3 @@ export const Experimentation = ({projects}: ExperimentationProps) => {
     </motion.section>
   );
 };
-
-
