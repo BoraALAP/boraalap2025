@@ -43,7 +43,7 @@ const projects = [
   {
     title: "Frank",
     description: "NextJS - Strapi/ Freelance",
-    href: "https://frank.com",
+    href: "https://frankwd.com",
     image: Frank,
   },
   {
