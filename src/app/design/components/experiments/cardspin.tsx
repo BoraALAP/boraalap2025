@@ -7,7 +7,7 @@ export const CardSpin = () => {
   return (
     <div className="aspect-square h-full w-full overflow-hidden">
       <Suspense fallback={<div>Loading...</div>}>
-        <Spline scene="https://my.spline.design/untitled-ba83fa61609fbc600036d9c6d7734a07/" />
+        <Spline scene="https://prod.spline.design/Sl-gMbxZGEvz0s-v/scene.splinecode" />
       </Suspense>
     </div>
   );
