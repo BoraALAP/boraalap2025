@@ -6,13 +6,19 @@ import { Experiences } from "@/app/design/components/Experiences";
 import { Testimonials } from "@/app/design/components/Testimonials";
 
 import EkarMobile from "../../../public/experiments/EkarMobile.jpg";
-// import EkarWeb from "../../../public/experiments/EkarWeb.jpg";
 import Hiroo from "../../../public/experiments/Hiroo.jpg";
 import Profillet from "../../../public/experiments/Profillet.jpg";
 import ProfilletBranding from "../../../public/experiments/ProfilletBranding.jpg";
+
 import { Splineblend } from "./components/experiments/splineblend";
+import { CardSpin } from "./components/experiments/cardspin";
 
 const projects = [
+  {
+    title: "Card Spin",
+    description: "Playground",
+    component: CardSpin,
+  },
   {
     title: "Spline Blend",
     description: "Playground",
