@@ -1,8 +1,8 @@
 import { H2 } from "@/components/Reveal";
 import { WorkCard } from "@/components/subelements/WorkCard";
 
-import connect from "../../../../public/projects/connect/thumbnail.png"
-import brick from "../../../../public/projects/bricks/thumbnail.png"
+import connect from "../../../../public/projects/connect/thumbnail.png";
+import brick from "../../../../public/projects/bricks/thumbnail.png";
 
 export const Work = () => {
   return (
@@ -16,8 +16,8 @@ export const Work = () => {
             members and business owners in the trades industry, facilitating
             time, expense, and mileage tracking."
             metrics={[
-              { metrics: "User Retention Rate", value: "40%" },
-              { metrics: "Data Accuracy Improvement", value: "25%" },
+              { metrics: "User Retention Rate Increased", value: "40%" },
+              { metrics: "Data Accuracy Increased", value: "25%" },
             ]}
             link="/design/connect"
             src={connect.src}
@@ -37,5 +37,3 @@ export const Work = () => {
     </section>
   );
 };
-
-
