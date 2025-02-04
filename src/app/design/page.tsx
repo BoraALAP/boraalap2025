@@ -12,8 +12,14 @@ import ProfilletBranding from "../../../public/experiments/ProfilletBranding.jpg
 
 import { Splineblend } from "./components/experiments/splineblend";
 import { CardSpin } from "./components/experiments/cardspin";
+import { GamingCard } from "./components/experiments/gamingcard";
 
 const projects = [
+  {
+    title: "Gaming Card",
+    description: "Playground",
+    component: GamingCard,
+  },
   {
     title: "Card Spin",
     description: "Playground",
