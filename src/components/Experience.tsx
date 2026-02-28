@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 
 const experiences = [
-  { company: "GoodHabitz", title: "Product Design Lead", location: "Amsterdam", period: "2024 – Present" },
+  { company: "GoodHabitz", title: "Product Design Lead & Design Engineer", location: "Amsterdam", period: "2024 – Present", note: "Experts (0→1) · Design, prototyping, frontend" },
   { company: "FreshBooks", title: "Product Design Lead", location: "Toronto", period: "2021 – 2024" },
   { company: "Ceridian", title: "Sr. Mobile Designer", location: "Toronto", period: "2019 – 2021" },
   { company: "Rogers", title: "Sr. Mobile Designer", location: "Toronto", period: "2017 – 2019" },
@@ -35,7 +35,10 @@ export default function Experience() {
           >
             <div className="flex flex-col gap-0.5 md:flex-row md:items-center md:gap-4">
               <span className="min-w-[160px] font-semibold text-heading">{e.company}</span>
-              <span className="text-sm text-muted">{e.title}</span>
+              <div className="flex flex-col gap-0">
+                <span className="text-sm text-muted">{e.title}</span>
+                {"note" in e && e.note && <span className="text-xs text-accent/70">{e.note as string}</span>}
+              </div>
             </div>
             <span className="mt-1 text-xs text-muted md:mt-0">
               {e.location} · {e.period}
