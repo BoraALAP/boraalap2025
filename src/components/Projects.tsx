@@ -13,8 +13,15 @@ export default function Projects() {
     >
       <p className="text-sm leading-relaxed text-muted">
         Building things on the side →{" "}
-        <span className="text-body">Fablebook</span> — AI children&apos;s
-        storybook app (iOS).{" "}
+        <a
+          href="https://apps.apple.com/nl/app/fablebook/id6755065411"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-body hover:text-accent transition-colors"
+        >
+          Fablebook
+        </a>{" "}
+        — AI children&apos;s storybook app (iOS).{" "}
         <br className="hidden md:inline" />A few other experiments at{" "}
         <a
           href="https://github.com/BoraALAP"

@@ -90,35 +90,17 @@ function WorkRow({ project, index }: { project: typeof projects[number]; index: 
             <p className="text-sm text-[#606070] leading-relaxed">
               {project.type}
             </p>
-
-            {/* Expanding detail on hover */}
-            <AnimatePresence>
-              {hovered && (
-                <motion.p
-                  initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                  animate={{ opacity: 1, height: 'auto', marginTop: 8 }}
-                  exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="text-sm text-[#a0a0b0] leading-relaxed overflow-hidden"
-                >
-                  {project.detail}
-                </motion.p>
-              )}
-            </AnimatePresence>
+            {/* Detail always visible */}
+            <p className="mt-2 text-sm text-[#a0a0b0] leading-relaxed">
+              {project.detail}
+            </p>
           </div>
 
-          {/* Right: year + arrow */}
-          <div className="flex items-center gap-3 pt-0.5 shrink-0">
+          {/* Right: year */}
+          <div className="flex items-center gap-2 pt-0.5 shrink-0">
             <span className="font-mono text-xs text-[#484858] tabular-nums">
               {project.years}
             </span>
-            <motion.span
-              animate={{ x: hovered ? 2 : 0, opacity: hovered ? 1 : 0 }}
-              transition={{ duration: 0.15 }}
-              className="text-[#606070] text-sm"
-            >
-              ↗
-            </motion.span>
           </div>
         </div>
       </div>
