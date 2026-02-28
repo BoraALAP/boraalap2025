@@ -6,10 +6,10 @@ import { useState } from "react";
 const experiences = [
   {
     company: "GoodHabitz",
-    role: "Product Design Lead",
+    role: "Product Design Lead & Design Engineer",
     location: "Amsterdam",
     period: "2024 – Present",
-    description: "Building the design system from scratch for a B2B learning platform.",
+    description: "Experts (0→1): design, prototyping, and frontend as design engineer. Building the design system from scratch.",
   },
   {
     company: "FreshBooks",

@@ -6,11 +6,20 @@ import { useState } from "react";
 
 const projects = [
   {
+    title: "GoodHabitz — Experts",
+    tags: ["0→1 Product", "Design Engineering"],
+    description: "Greenfield product built from scratch. Led design, prototyping, and frontend implementation as design engineer — writing code alongside designing it.",
+    metrics: ["0 → 1 Product", "Design + Code", "Current"],
+    image: null,
+    current: true,
+  },
+  {
     title: "FreshBooks Connect",
     tags: ["Mobile Design", "iOS & Android"],
     description: "Streamlined time, expense, and mileage tracking for trades teams.",
     metrics: ["40% ↑ Retention", "25% ↑ Data Accuracy"],
     image: "/projects/connect/thumbnail.png",
+    current: false,
   },
   {
     title: "FreshBricks Design System",
@@ -18,6 +27,7 @@ const projects = [
     description: "Unified design language across FreshBooks web — components, tokens, guidelines.",
     metrics: ["93% Adoption", "30% ↓ Dev Time"],
     image: "/projects/bricks/thumbnail.png",
+    current: false,
   },
 ];
 
@@ -37,14 +47,23 @@ function WorkCard({ project }: { project: (typeof projects)[0] }) {
       }}
     >
       <div className="relative aspect-[16/10] overflow-hidden">
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          className="object-cover"
-        />
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover"
+          />
+        ) : (
+          <div className="h-full w-full bg-gradient-to-br from-amber-400/10 via-amber-400/5 to-transparent flex items-end p-4">
+            <span className="text-xs font-mono text-amber-400/70 tracking-widest uppercase">Current · 2024–Now</span>
+          </div>
+        )}
       </div>
       <div className="p-5">
+        {"current" in project && project.current && (
+          <span className="inline-block mb-3 text-xs font-mono px-2.5 py-0.5 rounded-full" style={{ background: "oklch(75% 0.18 55 / 0.12)", color: "oklch(75% 0.18 55)" }}>Now</span>
+        )}
         <div className="flex flex-wrap gap-2 mb-3">
           {project.tags.map((tag) => (
             <span
