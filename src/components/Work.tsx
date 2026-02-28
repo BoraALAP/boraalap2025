@@ -1,87 +1,147 @@
-"use client";
+'use client';
 
-import { motion } from "motion/react";
-import Image from "next/image";
+import { motion, AnimatePresence } from 'motion/react';
+import { useState } from 'react';
 
 const projects = [
   {
-    title: "GoodHabitz — Experts",
-    description: "0→1 product design and frontend engineering. Led from concept to launch — prototyping, design system foundations, and writing code as design engineer.",
-    metrics: ["0 → 1 Product", "Design + Engineering", "Current"],
-    image: null,
+    title: 'GoodHabitz — Experts',
+    type: '0→1 Product · Design Engineering',
+    years: '2024–Now',
+    detail: 'Greenfield B2B learning product. Led design and wrote production frontend code alongside the engineering team.',
     current: true,
+    image: null,
   },
   {
-    title: "FreshBooks Connect",
-    description: "Mobile app for the trades industry.",
-    metrics: ["40% ↑ User Retention", "25% ↑ Data Accuracy"],
-    image: "/projects/connect/thumbnail.png",
+    title: 'FreshBooks Connect',
+    type: 'Mobile Design · iOS & Android',
+    years: '2021–24',
+    detail: 'Trades industry app covering time, expense, and mileage tracking. Shipped across iOS and Android.',
     current: false,
+    image: null,
   },
   {
-    title: "FreshBricks",
-    description: "Design system unifying design and dev at FreshBooks.",
-    metrics: ["93% Adoption Rate", "30% ↓ Dev Time"],
-    image: "/projects/bricks/thumbnail.png",
+    title: 'FreshBricks Design System',
+    type: 'Design System · Component Library',
+    years: '2021–24',
+    detail: 'Unified design language across FreshBooks web apps. 93% adoption rate, 30% reduction in dev time.',
     current: false,
+    image: null,
   },
 ];
 
+function WorkRow({ project, index }: { project: typeof projects[number]; index: number }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.5, delay: index * 0.07 }}
+    >
+      <div
+        className="group relative cursor-default border-t border-[#ffffff]/[0.06] py-5 transition-colors duration-200"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        {/* Hover background */}
+        <AnimatePresence>
+          {hovered && (
+            <motion.div
+              key="hover-bg"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
+              className="pointer-events-none absolute inset-0 -mx-6 bg-white/[0.03]"
+            />
+          )}
+        </AnimatePresence>
+
+        {/* Left accent bar */}
+        <AnimatePresence>
+          {hovered && (
+            <motion.div
+              key="accent"
+              initial={{ scaleY: 0 }}
+              animate={{ scaleY: 1 }}
+              exit={{ scaleY: 0 }}
+              transition={{ duration: 0.2 }}
+              style={{ originY: 0.5 }}
+              className="pointer-events-none absolute -left-6 inset-y-0 w-[2px] bg-[#a3e635]"
+            />
+          )}
+        </AnimatePresence>
+
+        <div className="relative flex items-start justify-between gap-6">
+          {/* Left: title + description */}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-3 mb-1">
+              <h3 className="text-[#f8f8ff] font-medium text-base leading-snug transition-colors group-hover:text-white">
+                {project.title}
+              </h3>
+              {project.current && (
+                <span className="shrink-0 rounded-full bg-[#a3e635]/10 border border-[#a3e635]/25 px-2 py-0.5 text-[10px] font-medium text-[#a3e635] uppercase tracking-wide">
+                  Current
+                </span>
+              )}
+            </div>
+            <p className="text-sm text-[#606070] leading-relaxed">
+              {project.type}
+            </p>
+
+            {/* Expanding detail on hover */}
+            <AnimatePresence>
+              {hovered && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                  animate={{ opacity: 1, height: 'auto', marginTop: 8 }}
+                  exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-sm text-[#a0a0b0] leading-relaxed overflow-hidden"
+                >
+                  {project.detail}
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Right: year + arrow */}
+          <div className="flex items-center gap-3 pt-0.5 shrink-0">
+            <span className="font-mono text-xs text-[#484858] tabular-nums">
+              {project.years}
+            </span>
+            <motion.span
+              animate={{ x: hovered ? 2 : 0, opacity: hovered ? 1 : 0 }}
+              transition={{ duration: 0.15 }}
+              className="text-[#606070] text-sm"
+            >
+              ↗
+            </motion.span>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Work() {
   return (
-    <section id="work" className="mx-auto max-w-[1100px] px-6 py-16">
+    <section id="work" className="mx-auto max-w-3xl px-6 py-24">
       <motion.h2
-        className="mb-10 text-sm font-medium uppercase tracking-widest text-muted"
-        initial={{ opacity: 0, filter: "blur(4px)" }}
-        whileInView={{ opacity: 1, filter: "blur(0px)" }}
-        transition={{ duration: 0.4 }}
-        viewport={{ once: true }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.5 }}
+        className="mb-12 text-sm font-mono uppercase tracking-widest text-[#484858]"
       >
-        Work
+        Selected Work
       </motion.h2>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {projects.map((p, i) => (
-          <motion.article
-            key={p.title}
-            className={`group overflow-hidden rounded-xl border bg-bg ${p.current ? "border-accent/40 md:col-span-2 lg:col-span-1" : "border-border"}`}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            viewport={{ once: true }}
-          >
-            <div className="relative aspect-[16/10] overflow-hidden">
-              {p.image ? (
-                <Image
-                  src={p.image}
-                  alt={p.title}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                />
-              ) : (
-                <div className="h-full w-full bg-gradient-to-br from-accent/10 via-accent/5 to-transparent flex items-center justify-center">
-                  <span className="text-xs font-mono text-accent/60 tracking-widest uppercase">Current Work</span>
-                </div>
-              )}
-            </div>
-            <div className="p-6">
-              {p.current && (
-                <span className="mb-3 inline-block rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-mono text-accent">Now</span>
-              )}
-              <h3 className="text-lg font-semibold text-heading">{p.title}</h3>
-              <p className="mt-1 text-sm text-muted">{p.description}</p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {p.metrics.map((m) => (
-                  <span
-                    key={m}
-                    className="rounded-full border border-border px-3 py-1 text-xs text-accent"
-                  >
-                    {m}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </motion.article>
+      <div className="border-b border-[#ffffff]/[0.06]">
+        {projects.map((project, i) => (
+          <WorkRow key={project.title} project={project} index={i} />
         ))}
       </div>
     </section>
