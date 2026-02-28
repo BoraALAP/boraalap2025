@@ -31,7 +31,7 @@ export default function Experience() {
         {experiences.map((e, i) => (
           <motion.div
             key={e.company}
-            className="flex flex-col justify-between border-b border-border px-2 py-4 transition-colors hover:bg-hover-bg md:flex-row md:items-center"
+            className="flex flex-col justify-between border-b border-border py-4 transition-colors hover:bg-hover-bg md:flex-row md:items-center"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: i * 0.05 }}
@@ -64,7 +64,7 @@ export default function Experience() {
         {education.map((e, i) => (
           <motion.div
             key={e.company}
-            className="flex flex-col justify-between border-b border-border px-2 py-4 transition-colors hover:bg-hover-bg md:flex-row md:items-center"
+            className="flex flex-col justify-between border-b border-border py-4 transition-colors hover:bg-hover-bg md:flex-row md:items-center"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: i * 0.05 }}

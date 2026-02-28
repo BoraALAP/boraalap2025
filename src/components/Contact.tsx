@@ -38,7 +38,7 @@ export default function Contact() {
           ))}
         </div>
 
-        <p className="mt-16 text-xs text-muted">© 2025 Bora Alap</p>
+        <p className="mt-16 text-xs text-muted">© 2026 Bora Alap</p>
       </motion.div>
     </section>
   );
