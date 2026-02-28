@@ -5,7 +5,7 @@ export const Projects = () => (
     <p className="text-text leading-relaxed">
       Also building things at night →{" "}
       <a
-        href="https://apps.apple.com/app/fablebook"
+        href="https://fablebook.app"
         className="text-accent hover:underline"
         target="_blank"
         rel="noopener noreferrer"

@@ -13,23 +13,25 @@ const experiences = [
 ];
 
 const education = [
-  { period: "2010–2012", company: "Humber College", role: "Creative Advertising", location: "Toronto", detail: undefined },
+  { period: "2010–2014", company: "Humber College", role: "Creative Advertising", location: "Toronto", detail: undefined },
 ];
 
 const Row = ({ item }: { item: (typeof experiences)[0] }) => (
   <div className="group -mx-3 px-3 py-2 rounded transition-colors duration-150 hover:bg-hover-bg">
-    <div className="flex gap-4 items-baseline">
-      <span className="font-mono text-xs text-accent shrink-0 w-[110px]">
+    <div className="flex gap-4">
+      <span className="font-mono text-xs text-accent shrink-0 w-[110px] pt-0.5">
         {item.period}
       </span>
-      <span className="text-heading text-sm">{item.company}</span>
-      <span className="text-muted text-sm">
-        · {item.role} · {item.location}
-      </span>
+      <div className="flex flex-col">
+        <span className="text-heading text-sm">{item.company}</span>
+        <span className="text-muted text-xs">
+          {item.role} · {item.location}
+        </span>
+        {item.detail && (
+          <p className="text-muted text-xs mt-0.5">{item.detail}</p>
+        )}
+      </div>
     </div>
-    {item.detail && (
-      <p className="text-muted text-xs mt-0.5 ml-[126px]">{item.detail}</p>
-    )}
   </div>
 );
 
