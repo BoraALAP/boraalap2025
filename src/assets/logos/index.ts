@@ -8,6 +8,7 @@ export { default as ChatGPTLogo } from './ChatGPTLogo';
 export { default as PerplexityLogo } from './PerplexityLogo';
 export { default as LoomLogo } from './LoomLogo';
 export { default as CursorLogo } from './CursorLogo';
+export { default as ClaudeCodeLogo } from './ClaudeCodeLogo';
 export { default as WebflowLogo } from './WebflowLogo';
 export { default as TailwindLogo } from './TailwindLogo';
 export { default as NextjsLogo } from './NextjsLogo';
