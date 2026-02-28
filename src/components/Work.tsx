@@ -110,13 +110,13 @@ function WorkRow({ project, index }: { project: typeof projects[number]; index: 
 
 export default function Work() {
   return (
-    <section id="work" className="mx-auto max-w-3xl px-6 py-24">
+    <section id="work" className="mx-auto max-w-[1100px] px-6 py-16">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-60px' }}
         transition={{ duration: 0.5 }}
-        className="mb-12 text-sm font-mono uppercase tracking-widest text-[#484858]"
+        className="mb-10 text-sm font-medium uppercase tracking-widest text-muted"
       >
         Selected Work
       </motion.h2>
