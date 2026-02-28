@@ -10,6 +10,8 @@ import {
   ExpoLogo,
   TailwindLogo,
   SupabaseLogo,
+  CursorLogo,
+  ClaudeCodeLogo,
 } from "@/assets/logos";
 
 const designTools = [
@@ -24,6 +26,11 @@ const devTools = [
   { name: "Expo", Icon: ExpoLogo },
   { name: "Tailwind", Icon: TailwindLogo },
   { name: "Supabase", Icon: SupabaseLogo },
+];
+
+const aiTools = [
+  { name: "Cursor", Icon: CursorLogo },
+  { name: "Claude Code", Icon: ClaudeCodeLogo },
 ];
 
 function ToolItem({ name, Icon }: { name: string; Icon: React.ComponentType }) {
@@ -57,7 +64,7 @@ export default function Stack() {
         transition={{ duration: 0.5, delay: 0.1 }}
         viewport={{ once: true }}
       >
-        {[...designTools, ...devTools].map((t) => (
+        {[...designTools, ...devTools, ...aiTools].map((t) => (
           <ToolItem key={t.name} name={t.name} Icon={t.Icon} />
         ))}
       </motion.div>
