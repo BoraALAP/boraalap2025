@@ -14,7 +14,7 @@ export default function Projects() {
       <p className="text-sm leading-relaxed text-muted">
         Building things on the side →{" "}
         <a
-          href="https://apps.apple.com/nl/app/fablebook/id6755065411"
+          href="https://fablebook.app"
           target="_blank"
           rel="noopener noreferrer"
           className="text-body hover:text-accent transition-colors"
