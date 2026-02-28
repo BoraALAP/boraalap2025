@@ -1,90 +1,31 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-bg: #080808;
+  --color-body: #e8e8e8;
+  --color-muted: #888888;
+  --color-heading: #ffffff;
+  --color-accent: #a3e635;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-hover-bg: rgba(255, 255, 255, 0.03);
+
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
-/* @media (prefers-color-scheme: dark)  {
-  :root {
-    --foreground: #ffffff;
-    --background: #171717;
-  }
-} */
-[data-theme='dark'] {
-  :root {
-    --foreground: #ffffff;
-    --background: #171717;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
-  @apply bg-light-base text-light-body dark:bg-dark-base dark:text-dark-body ;
-  
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  background-color: var(--color-bg);
+  color: var(--color-body);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply font-display;
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
 }
-
-h1 {
-  @apply text-lg font-semibold text-light-body dark:text-dark-body;
-}
-
-h2 {
-  @apply text-lg font-semibold text-light-softBody dark:text-dark-softBody;
-}
-
-h3 {
-  @apply text-lg font-semibold text-light-softBody dark:text-dark-softBody;
-}
-
-h4 {
-  @apply text-base font-semibold leading-normal text-light-accent dark:text-dark-accent;
-}
-
-h5 {
-  @apply text-base font-semibold text-light-softBody dark:text-dark-softBody;
-}
-
-p {
-  @apply max-w-screen-sm font-body text-base font-normal leading-relaxed tracking-normal text-light-body dark:text-dark-body;
-}
-
-small {
-  @apply font-body text-sm font-medium text-light-body dark:text-dark-body;
-}
-
-blockquote {
-  @apply max-w-screen-md text-center text-base font-semibold italic leading-normal text-light-softBody dark:text-dark-softBody;
-}
-
-ul {
-  @apply list-disc;
-  padding-inline-start: 1.5rem;
-}
-
-ol {
-  @apply list-decimal;
-}
-
-li {
-  @apply max-w-xl font-body text-base font-normal leading-relaxed tracking-tight text-light-body dark:text-dark-body;
-}
-
-.no-scroll {
-@apply overflow-hidden h-screen;
-}
-
-
-
-
