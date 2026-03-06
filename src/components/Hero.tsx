@@ -25,7 +25,7 @@ export const Hero = () => {
         Bora Alap
       </h1>
       <div className="font-mono text-sm text-muted leading-relaxed mb-5">
-        <p>{"// Product Design Lead & Design Engineer"}</p>
+        <p>{"// UX Manager & Design Engineer"}</p>
         <p>{"// Amsterdam — via Toronto"}</p>
       </div>
       <p className="text-muted leading-relaxed max-w-[560px]">

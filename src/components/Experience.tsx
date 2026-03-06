@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { SectionHeading } from "./SectionHeading";
 
 const experiences = [
-  { period: "2024–Present", company: "GoodHabitz", role: "Product Design Lead", location: "Amsterdam", detail: "Experts product (0→1). Design, prototyping, frontend." },
+  { period: "2024–Present", company: "GoodHabitz", role: "UX Manager", location: "Amsterdam", detail: "Experts product (0→1). Design, prototyping, frontend." },
   { period: "2021–2024", company: "FreshBooks", role: "Product Design Lead", location: "Toronto", detail: undefined },
   { period: "2019–2021", company: "Ceridian", role: "Sr. Mobile Designer", location: "Toronto", detail: undefined },
   { period: "2017–2019", company: "Rogers Communications", role: "Sr. Mobile Designer", location: "Toronto", detail: undefined },
