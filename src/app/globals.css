@@ -12,6 +12,17 @@
   --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
+/* Light theme */
+:root.light {
+  --color-bg: #fafafa;
+  --color-body: #2a2a2a;
+  --color-muted: #6b6b6b;
+  --color-heading: #0a0a0a;
+  --color-accent: #65a30d;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-hover-bg: rgba(0, 0, 0, 0.03);
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;

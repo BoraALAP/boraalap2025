@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const links = [
   { label: "Work", href: "#work" },
@@ -21,12 +22,9 @@ export default function Nav() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 transition-colors duration-300"
-      style={{
-        backgroundColor: scrolled ? "rgba(8,8,8,0.8)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
-      }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-bg/80 backdrop-blur-xl" : ""
+      }`}
     >
       <div className="mx-auto flex max-w-[1100px] items-center justify-between px-6 py-4">
         <a href="#" className="text-sm font-medium text-heading">
@@ -34,7 +32,7 @@ export default function Nav() {
         </a>
 
         {/* Desktop */}
-        <div className="hidden gap-6 md:flex">
+        <div className="hidden items-center gap-6 md:flex">
           {links.map((l) => (
             <a
               key={l.href}
@@ -44,6 +42,7 @@ export default function Nav() {
               {l.label}
             </a>
           ))}
+          <ThemeToggle />
         </div>
 
         {/* Mobile hamburger */}
@@ -84,6 +83,7 @@ export default function Nav() {
                   {l.label}
                 </a>
               ))}
+              <ThemeToggle />
             </div>
           </motion.div>
         )}
