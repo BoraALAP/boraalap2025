@@ -21,7 +21,7 @@ export default function About() {
         transition={{ duration: 0.5, delay: 0.1 }}
         viewport={{ once: true }}
       >
-        UX Manager & Design Engineer at GoodHabitz. Over a decade crafting design
+        UX Manager at GoodHabitz. Over a decade crafting design
         systems, mobile apps, and user-centered digital experiences across B2B
         SaaS, telecom, and fintech. At night: building AI-powered products.
       </motion.p>

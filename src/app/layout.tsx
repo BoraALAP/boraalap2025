@@ -9,9 +9,9 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Bora Alap — Product Design Lead & Design Engineer",
+  title: "Bora Alap — UX Manager & Design Engineer",
   description:
-    "Designing systems. Shipping products. Bridging design and engineering. Amsterdam-based Product Design Lead with over a decade of experience.",
+    "Designing systems. Shipping products. Bridging design and engineering. Amsterdam-based UX Manager with over a decade of experience.",
 };
 
 export default function RootLayout({

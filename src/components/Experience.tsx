@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 
 const experiences = [
-  { company: "GoodHabitz", title: "Product Design Lead & Design Engineer", location: "Amsterdam", period: "2024 – Present", note: "Experts (0→1) · Design, prototyping, frontend" },
+  { company: "GoodHabitz", title: "UX Manager & Design Engineer", location: "Amsterdam", period: "2024 – Present", note: "Experts (0→1) · Design, prototyping, frontend" },
   { company: "FreshBooks", title: "Product Design Lead", location: "Toronto", period: "2021 – 2024" },
   { company: "Ceridian", title: "Sr. Mobile Designer", location: "Toronto", period: "2019 – 2021" },
   { company: "Rogers", title: "Sr. Mobile Designer", location: "Toronto", period: "2017 – 2019" },
