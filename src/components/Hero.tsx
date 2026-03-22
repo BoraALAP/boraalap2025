@@ -25,7 +25,8 @@ export default function Hero() {
       >
         <p className="text-body text-base md:text-lg max-w-md leading-relaxed">
           A decade of shaping digital products people actually use.
-          Currently leading design & engineering at GoodHabitz.
+          Currently a Design Engineer at GoodHabitz — designing systems
+          and prototyping in code.
         </p>
         <p className="text-muted text-sm tracking-[0.1em]">
           Amsterdam, NL
