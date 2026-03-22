@@ -20,26 +20,28 @@ export default function Nav() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 py-4">
-      <motion.nav
-        className="flex items-center justify-between w-full max-w-4xl px-6 py-3 rounded-full transition-colors duration-300"
+    <header className="fixed top-0 left-0 right-0 z-50">
+      <nav
+        className="flex items-center justify-between max-w-[1200px] mx-auto px-6 md:px-10 py-5 transition-all duration-500"
         style={{
-          backgroundColor: scrolled ? "rgba(12,12,12,0.8)" : "transparent",
-          backdropFilter: scrolled ? "blur(16px)" : "none",
-          border: scrolled ? "1px solid rgba(255,255,255,0.06)" : "1px solid transparent",
+          backgroundColor: scrolled ? "rgba(10,10,10,0.85)" : "transparent",
+          backdropFilter: scrolled ? "blur(20px)" : "none",
         }}
       >
-        <a href="#" className="text-heading font-semibold text-sm tracking-tight">
+        <a
+          href="#"
+          className="text-heading text-sm tracking-[0.2em] uppercase font-light"
+        >
           Bora Alap
         </a>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-muted text-sm hover:text-heading transition-colors duration-200"
+              className="text-muted text-xs tracking-[0.15em] uppercase hover:text-heading transition-colors duration-300"
             >
               {link.label}
             </a>
@@ -54,33 +56,37 @@ export default function Nav() {
         >
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             {mobileOpen ? (
-              <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" strokeWidth="1.5" />
+              <path
+                d="M5 5L15 15M15 5L5 15"
+                stroke="currentColor"
+                strokeWidth="1"
+              />
             ) : (
               <>
-                <path d="M3 6H17" stroke="currentColor" strokeWidth="1.5" />
-                <path d="M3 10H17" stroke="currentColor" strokeWidth="1.5" />
-                <path d="M3 14H17" stroke="currentColor" strokeWidth="1.5" />
+                <path d="M3 7H17" stroke="currentColor" strokeWidth="1" />
+                <path d="M3 13H17" stroke="currentColor" strokeWidth="1" />
               </>
             )}
           </svg>
         </button>
-      </motion.nav>
+      </nav>
 
       {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="md:hidden fixed top-16 left-4 right-4 bg-surface border border-border rounded-[12px] p-4 flex flex-col gap-3 z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden fixed inset-0 top-16 bg-bg/95 backdrop-blur-md z-50 flex flex-col items-center justify-center gap-8"
           >
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-body text-sm hover:text-heading transition-colors py-2"
+                className="text-heading text-lg tracking-[0.15em] uppercase font-light"
               >
                 {link.label}
               </a>

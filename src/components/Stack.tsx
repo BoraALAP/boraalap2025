@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "motion/react";
-import { useState } from "react";
+import { motion } from "motion/react";
 import {
   FigmaLogo,
   FramerLogo,
@@ -31,66 +30,60 @@ const engStack = [
   { name: "Cursor", Icon: CursorLogo },
 ];
 
-function StackIcon({ name, Icon }: { name: string; Icon: React.ComponentType }) {
-  const [hovered, setHovered] = useState(false);
-
+function ToolItem({
+  name,
+  Icon,
+}: {
+  name: string;
+  Icon: React.ComponentType;
+}) {
   return (
-    <motion.div
-      className="relative flex items-center justify-center w-[56px] h-[56px] cursor-default"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      whileHover={{ scale: 1.15 }}
-      transition={{ type: "spring", stiffness: 400, damping: 15 }}
-    >
-      <div className="w-10 h-10 flex items-center justify-center [&_svg]:w-10 [&_svg]:h-10">
+    <div className="group flex items-center gap-3 py-2 cursor-default">
+      <div className="w-6 h-6 flex items-center justify-center [&_svg]:w-5 [&_svg]:h-5 opacity-50 group-hover:opacity-100 transition-opacity duration-300">
         <Icon />
       </div>
-      <AnimatePresence>
-        {hovered && (
-          <motion.div
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 6 }}
-            transition={{ duration: 0.15 }}
-            className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-surface border border-border rounded-[6px] text-xs text-heading whitespace-nowrap z-10"
-          >
-            {name}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+      <span className="text-sm text-body group-hover:text-heading transition-colors duration-300">
+        {name}
+      </span>
+    </div>
   );
 }
 
 export default function Stack() {
   return (
-    <section className="px-6 py-24 max-w-4xl mx-auto">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
+    <section className="px-6 md:px-10 py-32 max-w-[1200px] mx-auto border-t border-border">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-heading font-semibold text-2xl mb-10"
+        transition={{ duration: 0.6 }}
+        className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10 md:gap-20"
       >
-        Stack
-      </motion.h2>
-
-      <div className="mb-8">
-        <p className="text-muted text-sm mb-4">Design</p>
-        <div className="flex flex-wrap gap-4">
-          {designStack.map((item) => (
-            <StackIcon key={item.name} {...item} />
-          ))}
+        <div>
+          <h2 className="font-display text-3xl md:text-4xl text-heading italic">
+            Stack.
+          </h2>
         </div>
-      </div>
 
-      <div>
-        <p className="text-muted text-sm mb-4">Engineering</p>
-        <div className="flex flex-wrap gap-4">
-          {engStack.map((item) => (
-            <StackIcon key={item.name} {...item} />
-          ))}
+        <div className="grid grid-cols-2 gap-12">
+          <div>
+            <p className="text-xs tracking-[0.2em] uppercase text-muted mb-4">
+              Design
+            </p>
+            {designStack.map((item) => (
+              <ToolItem key={item.name} {...item} />
+            ))}
+          </div>
+          <div>
+            <p className="text-xs tracking-[0.2em] uppercase text-muted mb-4">
+              Engineering
+            </p>
+            {engStack.map((item) => (
+              <ToolItem key={item.name} {...item} />
+            ))}
+          </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

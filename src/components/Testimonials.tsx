@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useMotionValue } from "motion/react";
-import { useRef, useState, useEffect } from "react";
+import { motion } from "motion/react";
 import Image from "next/image";
 
 const testimonials = [
@@ -36,78 +35,51 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  const constraintRef = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const cardWidth = 356; // 340 + 16 gap
-
-  useEffect(() => {
-    const unsubscribe = x.on("change", (latest) => {
-      const idx = Math.round(Math.abs(latest) / cardWidth);
-      setActiveIndex(Math.min(idx, testimonials.length - 1));
-    });
-    return unsubscribe;
-  }, [x]);
-
   return (
-    <section className="py-24 overflow-hidden">
-      <div className="px-6 max-w-4xl mx-auto mb-10">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-heading font-semibold text-2xl"
-        >
-          Testimonials
-        </motion.h2>
-      </div>
+    <section className="px-6 md:px-10 py-32 max-w-[1200px] mx-auto border-t border-border">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="mb-16"
+      >
+        <h2 className="font-display text-3xl md:text-4xl text-heading italic mb-3">
+          Shoutouts.
+        </h2>
+        <p className="text-body text-lg">
+          What stakeholders and teammates say.
+        </p>
+      </motion.div>
 
-      <div ref={constraintRef} className="px-6 max-w-4xl mx-auto overflow-hidden">
-        <motion.div
-          drag="x"
-          style={{ x }}
-          dragConstraints={{
-            left: -(cardWidth * (testimonials.length - 1)),
-            right: 0,
-          }}
-          dragElastic={0.1}
-          className="flex gap-4 cursor-grab active:cursor-grabbing"
-        >
-          {testimonials.map((t) => (
-            <motion.div
-              key={t.name}
-              className="flex-shrink-0 w-[340px] p-5 bg-surface border border-border rounded-[12px]"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <Image
-                  src={t.avatar}
-                  alt={t.name}
-                  width={48}
-                  height={48}
-                  className="rounded-full object-cover"
-                />
-                <div>
-                  <p className="text-heading text-sm font-medium">{t.name}</p>
-                  <p className="text-muted text-xs">{t.title}</p>
-                </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {testimonials.map((t, i) => (
+          <motion.blockquote
+            key={t.name}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: i * 0.08 }}
+            className="relative"
+          >
+            <p className="text-heading text-base leading-relaxed font-light mb-6">
+              &ldquo;{t.quote}&rdquo;
+            </p>
+            <footer className="flex items-center gap-3">
+              <Image
+                src={t.avatar}
+                alt={t.name}
+                width={36}
+                height={36}
+                className="rounded-full object-cover opacity-80"
+              />
+              <div>
+                <p className="text-heading text-sm">{t.name}</p>
+                <p className="text-muted text-xs">{t.title}</p>
               </div>
-              <p className="text-body text-sm leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Dots */}
-        <div className="flex justify-center gap-2 mt-6">
-          {testimonials.map((_, i) => (
-            <div
-              key={i}
-              className="w-1.5 h-1.5 rounded-full transition-colors duration-200"
-              style={{
-                backgroundColor: i === activeIndex ? "oklch(75% 0.18 55)" : "rgba(255,255,255,0.15)",
-              }}
-            />
-          ))}
-        </div>
+            </footer>
+          </motion.blockquote>
+        ))}
       </div>
     </section>
   );
