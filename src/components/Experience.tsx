@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 const experiences = [
   {
     company: "GoodHabitz",
-    role: "Product Design Lead & Design Engineer",
+    role: "UX Manager",
     location: "Amsterdam",
     period: "2024 – Present",
     description:
