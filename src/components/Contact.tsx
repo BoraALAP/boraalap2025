@@ -23,10 +23,10 @@ export default function Contact() {
 
         <div>
           <a
-            href="mailto:bora@barkingcode.com"
+            href="mailto:hello@boraalap.com"
             className="text-heading text-2xl md:text-3xl font-light hover:text-accent transition-colors duration-300"
           >
-            bora@barkingcode.com
+            hello@boraalap.com
           </a>
 
           <div className="flex items-center gap-6 mt-10">

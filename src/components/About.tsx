@@ -28,7 +28,7 @@ export default function About() {
             adopted by entire organizations, shipped mobile apps used by
             millions, and prototyped 0→1 products that went to market. Today
             I&apos;m building the design system at GoodHabitz while running
-            Barking Studio, where I build AI-powered products.
+            my own studio, where I build AI-powered products.
           </p>
         </div>
       </motion.div>
