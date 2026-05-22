@@ -4,6 +4,13 @@
  */
 export const workItems = [
   {
+    title: "GoodHabitz Experts Platform",
+    description:
+      "A conversational AI authoring platform that helps organizations turn expert knowledge into structured learning content.",
+    proof: "B2B enterprise clients · 16-language localization · SCORM + LTI shipped",
+    role: "Lead product design · AI authoring UX · Multi-tenant CMS",
+  },
+  {
     title: "FreshBooks Connect",
     description:
       "Mobile product design for trades teams tracking time, expenses, and mileage in the field.",
