@@ -1,5 +1,9 @@
 "use client"
 
+/**
+ * Switch toggles the archived /2025 site between design and developer modes.
+ * It also keeps the older non-archive paths working if the component is reused.
+ */
 import { DevLogo } from "@/assets/DevLogo";
 import { motion } from "motion/react";
 import { useRouter, usePathname } from "next/navigation";
@@ -11,7 +15,7 @@ export const Switch = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    if(pathname === "/developer") {
+    if(pathname === "/developer" || pathname.startsWith("/2025/developer")) {
       setIsDev(true);
     } else {
       setIsDev(false);
@@ -21,8 +25,11 @@ export const Switch = () => {
   const handleSwitch = () => {
     // Store current scroll position
     // const scrollPosition = window.scrollY;
+    const isLegacy2025 = pathname.startsWith("/2025");
     
-    if(pathname === "/developer") {
+    if(isLegacy2025) {
+      router.push(pathname.startsWith("/2025/developer") ? "/2025" : "/2025/developer");
+    } else if(pathname === "/developer") {
       router.push("/");
     } else {
       router.push("/developer");

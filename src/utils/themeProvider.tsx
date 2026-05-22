@@ -9,8 +9,8 @@ export function Providers({ children }: { children: React.ReactNode}) {
 
   const pathname = usePathname()
   
-  // Define your forced theme logic here
-  const forcedTheme = pathname === '/developer' ? 'dark' : "light"
+  // Keep the archived developer view dark while the main portfolio stays light.
+  const forcedTheme = pathname === '/developer' || pathname.startsWith('/2025/developer') ? 'dark' : "light"
 
   useEffect(() => {
     setMounted(true)

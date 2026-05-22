@@ -7,7 +7,9 @@ import {
   JiraLogo,
   FramerLogo,
   Play2Logo,
+  SplineLogo,
   SpotifyLogo,
+  ChatGPTLogo,
   PerplexityLogo,
   LoomLogo,
   CursorLogo,
@@ -16,6 +18,7 @@ import {
   NextjsLogo,
   SupabaseLogo,
   ExpoLogo,
+  ReactLogo
 } from "@/assets/logos";
 
 export type BrandName =
@@ -43,13 +46,6 @@ interface BrandCardProps {
 }
 
 const BrandCard: React.FC<BrandCardProps> = ({ brandName,  index }) => {
-  // Some legacy logo files were intentionally removed; keep the card usable with a text mark.
-  const LogoFallback = ({ label }: { label: string }) => (
-    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-light-softLight text-xs font-semibold dark:border-dark-softLight">
-      {label}
-    </span>
-  );
-
   const getLogo = (name: BrandName) => {
     switch (name) {
       case "Figma":
@@ -61,11 +57,11 @@ const BrandCard: React.FC<BrandCardProps> = ({ brandName,  index }) => {
       case "Play 2":
         return <Play2Logo />;
       case "Spline":
-        return <LogoFallback label="Sp" />;
+        return <SplineLogo />;
       case "Spotify":
         return <SpotifyLogo />;
       case "ChatGPT":
-        return <LogoFallback label="AI" />;
+        return <ChatGPTLogo />;
       case "Perplexity":
         return <PerplexityLogo />;
       case "Loom":
@@ -84,7 +80,7 @@ const BrandCard: React.FC<BrandCardProps> = ({ brandName,  index }) => {
         return <ExpoLogo />;
       case "React":
       case "ReactNative":
-        return <LogoFallback label="Re" />;
+        return <ReactLogo />;
       default:
         return null;
     }
