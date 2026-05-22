@@ -23,7 +23,7 @@ export const Switch = () => {
     // const scrollPosition = window.scrollY;
     
     if(pathname === "/developer") {
-      router.push("/design");
+      router.push("/");
     } else {
       router.push("/developer");
     }

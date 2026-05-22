@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 
-import { Switch } from "./subelements/Switch";
 import { useEffect, useState } from "react";
 import { Social } from "./subelements/Social";
 
@@ -35,7 +34,7 @@ export const FloatingHeader = () => {
       {!isHeaderVisible && (
         <motion.header
         tabIndex={-1}
-          className="floating-header fixed bottom-6 left-1/2 justify-between z-50 pl-8 pr-2 py-2 bg-light-base dark:bg-dark-base overflow-hidden rounded-full flex items-center gap-6 w-[90vw] shadow-lg  max-w-96"
+          className="floating-header fixed bottom-6 left-1/2 z-50 flex w-[90vw] max-w-96 items-center justify-between gap-6 overflow-hidden rounded-full border border-neutral-200 bg-white py-2 pl-6 pr-2 shadow-lg dark:border-neutral-800 dark:bg-black"
           initial={{ y: 100, opacity: 0, x: "-50%" }}
           animate={{ y: 0, opacity: 1  }}
           exit={{ y: 100, opacity: 0 }}
@@ -48,16 +47,14 @@ export const FloatingHeader = () => {
           transition={{ duration: 0.6, delay: 0.3, ease: "easeInOut" }}
           >
 
-          <Link href="/">
-            <h1>Bora Alap</h1>
+          <Link href="/" className="text-sm font-semibold text-neutral-950 dark:text-white">
+            Bora Alap
           </Link>
           </motion.div>
-          <Switch />
           <Social />
         </motion.header>
       )}
     </AnimatePresence>
   );
 };
-
 

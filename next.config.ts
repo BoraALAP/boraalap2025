@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Keep Next from treating the home directory package-lock as this app's workspace root.
+  outputFileTracingRoot: __dirname,
+  turbopack: {
+    root: __dirname,
+  },
   images: {
     remotePatterns: [
       {

@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 import { divVariants, H2 } from "@/components/Reveal";
-import { ProjectCard } from "@/components/subelements/ProjectCard";
 import {
   SliderNextArrow,
   SliderPrevArrow,
@@ -45,9 +45,9 @@ export const Experimentation = ({ projects }: ExperimentationProps) => {
     };
   }, [cardWidth]);
 
-  const handleWidthChange = (width: number) => {
+  const handleWidthChange = useCallback((width: number) => {
     setCardWidth(width);
-  };
+  }, []);
 
   const handleNext = () => {
     if (currentIndex < projects.length - visibleCards) {
@@ -85,10 +85,9 @@ export const Experimentation = ({ projects }: ExperimentationProps) => {
             transition={{ type: "spring", stiffness: 150, damping: 20 }}
           >
             {projects.map((project, index) => (
-              <ProjectCard
+              <ExperimentCard
                 key={index}
                 title={project.title}
-                image={project.image?.src}
                 index={index}
                 onWidthChange={handleWidthChange}
                 description={project.description}
@@ -101,5 +100,56 @@ export const Experimentation = ({ projects }: ExperimentationProps) => {
         </div>
       </div>
     </motion.section>
+  );
+};
+
+const ExperimentCard = ({
+  title,
+  description,
+  href,
+  ComingSoon,
+  component: Component,
+  onWidthChange,
+}: Project & {
+  index: number;
+  onWidthChange: (width: number) => void;
+}) => {
+  const cardRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    // The legacy image card was removed; this text card keeps the carousel measurable.
+    if (cardRef.current) {
+      onWidthChange(cardRef.current.offsetWidth);
+    }
+  }, [onWidthChange]);
+
+  const content = (
+    <div
+      ref={cardRef}
+      className="flex min-h-80 w-[min(78vw,360px)] shrink-0 flex-col justify-between rounded-md border border-light-softLight bg-light-base p-6 dark:border-dark-softLight dark:bg-dark-base"
+    >
+      <div>
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-light-softBody dark:text-dark-softBody">
+          {ComingSoon ? "Coming Soon" : "Experiment"}
+        </p>
+        <h3 className="text-2xl font-semibold text-light-body dark:text-dark-body">{title}</h3>
+        <p className="mt-4 text-sm leading-6 text-light-softBody dark:text-dark-softBody">{description}</p>
+      </div>
+      {Component ? (
+        <div className="mt-8 overflow-hidden rounded-md border border-light-softLight dark:border-dark-softLight">
+          <Component />
+        </div>
+      ) : null}
+    </div>
+  );
+
+  if (!href || ComingSoon) {
+    return content;
+  }
+
+  return (
+    <Link href={href} target="_blank" rel="noreferrer">
+      {content}
+    </Link>
   );
 };
